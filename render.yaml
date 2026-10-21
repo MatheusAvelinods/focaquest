@@ -1,0 +1,44 @@
+# Blueprint do Render: cria banco, API e frontend a partir deste repositório.
+# No Render: New → Blueprint → selecione o repositório. Veja docs/deploy.md.
+databases:
+  - name: focaquest-db
+    plan: free
+    databaseName: focaquest
+    user: focaquest
+
+services:
+  - type: web
+    name: focaquest-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./apps/api/Dockerfile
+    dockerContext: .
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: FOCAQUEST_DB_HOST
+        fromDatabase: { name: focaquest-db, property: host }
+      - key: FOCAQUEST_DB_PORT
+        fromDatabase: { name: focaquest-db, property: port }
+      - key: FOCAQUEST_DB_NAME
+        fromDatabase: { name: focaquest-db, property: database }
+      - key: FOCAQUEST_DB_USER
+        fromDatabase: { name: focaquest-db, property: user }
+      - key: FOCAQUEST_DB_PASSWORD
+        fromDatabase: { name: focaquest-db, property: password }
+      - key: FOCAQUEST_JWT_SECRET
+        generateValue: true
+      - key: FOCAQUEST_SECURE_COOKIE
+        value: "true"
+      - key: JAVA_TOOL_OPTIONS
+        value: "-XX:+UseSerialGC -Xss512k"
+
+  - type: web
+    name: focaquest-web
+    runtime: docker
+    plan: free
+    dockerfilePath: ./apps/web/Dockerfile
+    dockerContext: ./apps/web
+    envVars:
+      # Endereço público da API. Se o Render der outro nome ao serviço, ajuste aqui ou no painel.
+      - key: FOCAQUEST_API_URL
+        value: https://focaquest-api.onrender.com

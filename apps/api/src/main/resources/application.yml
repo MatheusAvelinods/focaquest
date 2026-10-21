@@ -2,7 +2,8 @@ spring:
   application:
     name: focaquest-api
   datasource:
-    url: ${FOCAQUEST_DB_URL:jdbc:postgresql://localhost:5432/focaquest}
+    # FOCAQUEST_DB_URL completo, ou as partes (host/porta/nome) — formato usado por provedores como o Render.
+    url: ${FOCAQUEST_DB_URL:jdbc:postgresql://${FOCAQUEST_DB_HOST:localhost}:${FOCAQUEST_DB_PORT:5432}/${FOCAQUEST_DB_NAME:focaquest}}
     username: ${FOCAQUEST_DB_USER:focaquest}
     password: ${FOCAQUEST_DB_PASSWORD:focaquest}
   jpa:

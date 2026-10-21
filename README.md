@@ -39,12 +39,22 @@ infra/        docker-compose.yml
 
 ## Rodando
 
+### No ar (Render, gratuito)
+
+Siga [docs/deploy.md](docs/deploy.md): **New → Blueprint** no Render, selecione este repositório e
+o `render.yaml` cria banco, API e frontend.
+
 ### Com Docker (tudo junto)
 
 ```bash
 docker compose -f infra/docker-compose.yml up --build
 # http://localhost:3000 · API http://localhost:8080 · Swagger http://localhost:8080/swagger-ui.html
 ```
+
+**No Windows:** abra o **Docker Desktop** e espere aparecer "Engine running" antes de rodar o
+comando. O erro `open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file
+specified` significa que o Docker Desktop está fechado ou ainda iniciando. Se ele não iniciar,
+verifique se o WSL 2 está instalado (`wsl --install` no PowerShell como administrador).
 
 ### Em desenvolvimento
 

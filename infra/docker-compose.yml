@@ -35,8 +35,8 @@ services:
   web:
     build:
       context: ../apps/web
-      args:
-        FOCAQUEST_API_URL: http://api:8080
+    environment:
+      FOCAQUEST_API_URL: http://api:8080
     depends_on:
       - api
     ports:

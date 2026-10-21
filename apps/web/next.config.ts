@@ -1,15 +1,10 @@
 import type { NextConfig } from "next";
 
-const apiUrl = process.env.FOCAQUEST_API_URL ?? "http://localhost:8080";
-
-// O navegador fala apenas com a origem do frontend; /api é repassado ao backend.
-// Assim o cookie de sessão (httpOnly, SameSite=Strict) funciona sem CORS.
+// /api/* é encaminhado à API por src/app/api/[...path]/route.ts, com o endereço lido em
+// tempo de execução (FOCAQUEST_API_URL).
 const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
-  async rewrites() {
-    return [{ source: "/api/:path*", destination: `${apiUrl}/api/:path*` }];
-  },
   async headers() {
     return [
       {
