@@ -6,6 +6,10 @@ formato da banca com feedback comentado, e revisões espaçadas agendadas automa
 
 Primeiro concurso: **TJPB 2026 — Analista Judiciário, TI — Desenvolvimento de Sistemas (FGV)**.
 
+| Jornada | Feedback comentado | Retomada no celular |
+|---|---|---|
+| ![Jornada](docs/screenshots/jornada.png) | ![Feedback](docs/screenshots/feedback.png) | ![Retomada](docs/screenshots/retomada-celular.png) |
+
 ## O que já funciona (MVP, PRD §10)
 
 | Critério do PRD | Onde |
@@ -90,3 +94,7 @@ CI valida o conteúdo em todo pull request. Veja [docs/content-format.md](docs/c
 - [Arquitetura](docs/architecture.md) · [Modelo de dados](docs/data-model.md)
 - [Formato do conteúdo](docs/content-format.md) · [ADRs](docs/adr/)
 - API: [OpenAPI](docs/api/openapi.json) ou Swagger UI em `/swagger-ui.html`
+
+## Licença
+
+Código sob a licença [MIT](LICENSE).
