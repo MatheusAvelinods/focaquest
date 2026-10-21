@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* Tokens de cor: tons calmos, alto contraste de texto (WCAG 2.2 AA). */
+:root {
+  --bg: #f7f6f2;
+  --surface: #ffffff;
+  --surface-muted: #efede6;
+  --text: #1c2321;
+  --text-muted: #4f5a56;
+  --border: #d9d5ca;
+  --brand: #0f6b5c;
+  --brand-strong: #0a5246;
+  --brand-soft: #dcefe9;
+  --on-brand: #ffffff;
+  --success: #1d6b35;
+  --success-soft: #e1f2e5;
+  --danger: #a3261d;
+  --danger-soft: #fbe5e2;
+  --warning: #8a5a00;
+  --warning-soft: #fbefd5;
+  --info: #24548f;
+  --info-soft: #e1ebf8;
+  --focus: #1f5fd1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121615;
+    --surface: #1b211f;
+    --surface-muted: #232a28;
+    --text: #e9edeb;
+    --text-muted: #a9b4b0;
+    --border: #36403d;
+    --brand: #4fbfa8;
+    --brand-strong: #74d4c0;
+    --brand-soft: #1d3a34;
+    --on-brand: #0b1a17;
+    --success: #7ed39a;
+    --success-soft: #1b3324;
+    --danger: #f29b92;
+    --danger-soft: #3d1f1c;
+    --warning: #f0c36a;
+    --warning-soft: #3a2f17;
+    --info: #9cc2f5;
+    --info-soft: #1b2b40;
+    --focus: #8ab4ff;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-line: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-on-brand: var(--on-brand);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Animações apenas quando permitidas pelo sistema e pela preferência do estudante. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+[data-reduce-motion="true"] *, [data-reduce-motion="true"] *::before, [data-reduce-motion="true"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+.reading {
+  font-size: 1.0625rem;
+  max-width: 68ch;
+}

@@ -1,0 +1,115 @@
+questions:
+  - id: q.es.scrum.01
+    topic: es.scrum
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV), com base no Guia do Scrum 2020
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: No Scrum, o responsável por gerenciar e ordenar o Product Backlog é o
+    options:
+      - label: A
+        text: Scrum Master.
+        rationale: O Scrum Master responde pela eficácia do Scrum Team e ajuda o PO a encontrar técnicas de gestão do backlog, mas não é o responsável por ele.
+      - label: B
+        text: Product Owner.
+        rationale: O PO responde por maximizar o valor do produto, o que inclui gerenciar e ordenar o Product Backlog.
+      - label: C
+        text: conjunto de Developers.
+        rationale: Os Developers são responsáveis pelo Sprint Backlog, não pelo Product Backlog.
+      - label: D
+        text: gerente de projetos.
+        rationale: O Scrum não define o papel de gerente de projetos.
+      - label: E
+        text: cliente, durante a Sprint Review.
+        rationale: Stakeholders dão feedback na Review, mas a decisão sobre o backlog é do Product Owner.
+    correct: B
+    explanation: |
+      O Guia do Scrum define três responsabilidades: Product Owner (valor e Product Backlog),
+      Scrum Master (eficácia do time e do Scrum) e Developers (criação do Incremento e do plano da
+      Sprint). O PO pode delegar o trabalho, mas continua responsável.
+
+  - id: q.es.scrum.02
+    topic: es.scrum
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV), com base no Guia do Scrum 2020
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: De acordo com o Guia do Scrum (2020), o compromisso associado ao Incremento é a
+    options:
+      - label: A
+        text: Meta do Produto.
+        rationale: A Meta do Produto é o compromisso do Product Backlog.
+      - label: B
+        text: Meta da Sprint.
+        rationale: A Meta da Sprint é o compromisso do Sprint Backlog.
+      - label: C
+        text: Definição de Pronto.
+        rationale: A Definição de Pronto descreve o estado de qualidade exigido para que o trabalho seja considerado um Incremento.
+      - label: D
+        text: velocidade do time.
+        rationale: Velocidade é uma métrica opcional, não um artefato nem um compromisso do Scrum.
+      - label: E
+        text: Definição de Preparado (Definition of Ready).
+        rationale: A "Definition of Ready" é uma prática complementar e não faz parte do Guia do Scrum.
+    correct: C
+    explanation: |
+      Cada artefato tem um compromisso: Product Backlog → Meta do Produto; Sprint Backlog → Meta
+      da Sprint; Incremento → Definição de Pronto.
+
+  - id: q.es.scrum.03
+    topic: es.scrum
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV), com base no Guia do Scrum 2020
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Sobre a Daily Scrum, é correto afirmar que
+    options:
+      - label: A
+        text: é uma reunião de status em que os Developers reportam o andamento ao Product Owner.
+        rationale: A Daily é um evento dos Developers para se auto-organizarem, não uma prestação de contas.
+      - label: B
+        text: deve obrigatoriamente ser conduzida pelo Scrum Master.
+        rationale: O Scrum Master garante que o evento ocorra, mas a Daily é dos Developers.
+      - label: C
+        text: tem duração proporcional ao tamanho do time, sem limite fixo.
+        rationale: A Daily tem time-box de 15 minutos, independentemente do tamanho do time.
+      - label: D
+        text: é um evento de 15 minutos para os Developers inspecionarem o progresso rumo à Meta da Sprint e adaptarem o Sprint Backlog.
+        rationale: Esse é o propósito definido no Guia do Scrum.
+      - label: E
+        text: é o momento de demonstrar o Incremento aos stakeholders.
+        rationale: A apresentação aos stakeholders ocorre na Sprint Review.
+    correct: D
+    explanation: |
+      Eventos e time-boxes (Sprint de um mês): Sprint ≤ 1 mês; Planning ≤ 8 h; Daily = 15 min;
+      Review ≤ 4 h; Retrospectiva ≤ 3 h. Em Sprints menores, os eventos tendem a ser mais curtos.
+
+  - id: q.es.scrum.04
+    topic: es.scrum
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV), com base no Guia do Scrum 2020
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Segundo o Guia do Scrum, a duração de uma Sprint é de
+    options:
+      - label: A
+        text: exatamente duas semanas.
+        rationale: Duas semanas é uma escolha comum, mas não uma regra.
+      - label: B
+        text: um mês ou menos, com duração consistente.
+        rationale: Sprints têm duração fixa de um mês ou menos.
+      - label: C
+        text: até três meses, conforme a complexidade.
+        rationale: Sprints mais longas que um mês aumentam a complexidade e o risco; o limite é um mês.
+      - label: D
+        text: tempo livre, encerrando quando o escopo estiver pronto.
+        rationale: A Sprint é time-boxed; o escopo é que pode ser renegociado.
+      - label: E
+        text: uma semana, para permitir entregas diárias.
+        rationale: Não há duração mínima obrigatória de uma semana; o limite definido é o máximo de um mês.
+    correct: B
+    explanation: A Sprint é um contêiner de duração fixa (um mês ou menos) para todos os outros eventos.

@@ -1,0 +1,27 @@
+id: l.rlm.porcentagem
+topic: rlm.porcentagem
+title: Aumentos e descontos sucessivos
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Calcular variações percentuais sucessivas usando fatores multiplicativos.
+explanation: |
+  **Transforme cada variação em um fator:**
+
+  - aumento de i% → multiplique por (1 + i/100). Aumento de 10% → × 1,10;
+  - desconto de i% → multiplique por (1 − i/100). Desconto de 20% → × 0,80.
+
+  **Variações sucessivas se multiplicam, nunca se somam.** Cada percentual incide sobre o valor
+  já alterado.
+
+  Para achar a variação total, multiplique os fatores e compare com 1:
+  1,10 × 0,90 = 0,99 → **queda de 1%**.
+example: |
+  Um sistema tinha 2.000 usuários. Cresceu 20% em um mês e caiu 10% no seguinte.
+
+  2.000 × 1,20 × 0,90 = 2.000 × 1,08 = **2.160 usuários** (alta total de 8%, e não de 10%).
+summary: Variação sucessiva = produto dos fatores. Aumento e desconto iguais resultam em perda.
+activities:
+  - q.rlm.pct.01
+  - q.rlm.pct.02
+  - q.rlm.pct.03

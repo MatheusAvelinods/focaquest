@@ -1,0 +1,36 @@
+id: l.rlm.negacao
+topic: rlm.proposicoes
+title: Negação e equivalência da condicional
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Negar condicionais e conjunções e reconhecer as equivalências da condicional.
+explanation: |
+  **A condicional "se P, então Q" só é falsa em um caso:** P verdadeira e Q falsa. Por isso, a
+  negação é: **P e não Q**. Mantenha a primeira, troque por "e" e negue a segunda.
+
+  **Equivalências da condicional (P → Q):**
+
+  - **contrapositiva:** se não Q, então não P;
+  - **disjunção:** não P ou Q.
+
+  Recíproca (Q → P) e inversa (não P → não Q) **não** são equivalentes — são as pegadinhas
+  preferidas.
+
+  **Leis de De Morgan:** para negar "e" e "ou", negue as partes e troque o conectivo:
+
+  - não (P e Q) ≡ não P **ou** não Q;
+  - não (P ou Q) ≡ não P **e** não Q.
+
+  **Quantificadores:** a negação de "todo A é B" é "algum A não é B".
+example: |
+  Proposição: "Se o backup falhou, então o técnico é avisado."
+
+  - Negação: "O backup falhou **e** o técnico **não** é avisado."
+  - Equivalente: "Se o técnico **não** é avisado, então o backup **não** falhou."
+  - Equivalente: "O backup **não** falhou **ou** o técnico é avisado."
+summary: ~(P → Q) ≡ P ∧ ~Q. Equivalentes de P → Q — ~Q → ~P e ~P ∨ Q.
+activities:
+  - q.rlm.prop.01
+  - q.rlm.prop.02
+  - q.rlm.prop.03

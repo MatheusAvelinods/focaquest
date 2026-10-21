@@ -1,0 +1,18 @@
+id: fti
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: Fundamentos de TI comuns às especialidades
+position: 3
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, Fundamentos de TI"
+reviewedAt: 2026-10-21
+topics:
+  - id: fti.redes
+    code: "1"
+    name: Redes de computadores — modelo TCP/IP e protocolos de aplicação
+    objectives:
+      - Relacionar protocolos (HTTP, DNS, TLS) às camadas do modelo TCP/IP.
+  - id: fti.so
+    code: "2"
+    name: Sistemas operacionais — processos, threads e concorrência
+    objectives:
+      - Diferenciar processo e thread e reconhecer condições de corrida.

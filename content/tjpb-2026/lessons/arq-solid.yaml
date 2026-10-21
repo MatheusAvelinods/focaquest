@@ -1,0 +1,32 @@
+id: l.arq.solid
+topic: arq.solid
+title: SOLID na prática — reconhecendo violações
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Identificar qual princípio SOLID está sendo violado em um cenário de projeto.
+explanation: |
+  **S — Responsabilidade Única:** uma classe deve ter um único motivo para mudar.
+  Sinal de violação: a classe calcula, formata **e** envia.
+
+  **O — Aberto/Fechado:** aberto para extensão, fechado para modificação.
+  Sinal: um switch sobre "tipo" que cresce a cada novo caso. Solução: polimorfismo/Strategy.
+
+  **L — Substituição de Liskov:** subtipos devem poder substituir o tipo-base sem surpresas.
+  Sinal: o subtipo quebra o contrato (Quadrado herdando de Retângulo).
+
+  **I — Segregação de Interfaces:** nenhum cliente deve depender de métodos que não usa.
+  Sinal: implementações cheias de "throw new UnsupportedOperationException()".
+
+  **D — Inversão de Dependência:** módulos de alto nível dependem de abstrações, não de detalhes.
+  Sinal: regra de negócio instanciando diretamente uma classe de banco de dados.
+example: |
+  ServicoIntimacao cria, internamente, "new EnviadorEmailSmtp()". Para testar ou trocar por SMS, é preciso alterar o serviço → violação do **DIP**.
+
+  Solução: o serviço recebe uma interface **Notificador** no construtor; e-mail e SMS são
+  implementações injetadas.
+summary: Associe o sintoma ao princípio — muitas responsabilidades (S), switch crescente (O), subtipo surpreendente (L), interface inchada (I), dependência concreta (D).
+activities:
+  - q.arq.solid.01
+  - q.arq.solid.02
+  - q.arq.solid.03

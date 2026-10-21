@@ -1,0 +1,1592 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/api/v1/study-sessions": {
+            "post": {
+                "tags": [
+                    "Aprendizagem"
+                ],
+                "summary": "Iniciar sess\u00e3o (ou retomar a mesma miss\u00e3o, se j\u00e1 estiver aberta)",
+                "operationId": "start",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StartSessionRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SessionView"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/study-sessions/{id}/answers": {
+            "post": {
+                "tags": [
+                    "Aprendizagem"
+                ],
+                "summary": "Registrar resposta e receber feedback comentado",
+                "operationId": "answer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AnswerRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AnswerResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/me/reviews/{id}/complete": {
+            "post": {
+                "tags": [
+                    "Aprendizagem"
+                ],
+                "summary": "Concluir revis\u00e3o a partir da sess\u00e3o de revis\u00e3o realizada",
+                "operationId": "completeReview",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CompleteReviewRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SessionView"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/register": {
+            "post": {
+                "tags": [
+                    "Autentica\u00e7\u00e3o e perfil"
+                ],
+                "operationId": "register",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/logout": {
+            "post": {
+                "tags": [
+                    "Autentica\u00e7\u00e3o e perfil"
+                ],
+                "operationId": "logout",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/login": {
+            "post": {
+                "tags": [
+                    "Autentica\u00e7\u00e3o e perfil"
+                ],
+                "operationId": "login",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/study-sessions/{id}": {
+            "get": {
+                "tags": [
+                    "Aprendizagem"
+                ],
+                "summary": "Consultar sess\u00e3o; gabaritos s\u00f3 aparecem para quest\u00f5es j\u00e1 respondidas",
+                "operationId": "get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SessionView"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Aprendizagem"
+                ],
+                "summary": "Pausar, retomar, avan\u00e7ar de passo ou concluir a sess\u00e3o",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateSessionRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SessionView"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/me": {
+            "get": {
+                "tags": [
+                    "Autentica\u00e7\u00e3o e perfil"
+                ],
+                "operationId": "me",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Autentica\u00e7\u00e3o e perfil"
+                ],
+                "operationId": "update_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateProfileRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/roles/{id}/syllabus": {
+            "get": {
+                "tags": [
+                    "Cat\u00e1logo curricular"
+                ],
+                "summary": "Consultar trilhas e assuntos do edital vigente do cargo",
+                "operationId": "syllabus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SyllabusDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/me/reviews": {
+            "get": {
+                "tags": [
+                    "Aprendizagem"
+                ],
+                "summary": "Consultar revis\u00f5es programadas",
+                "operationId": "reviews",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/PendingReview"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/me/progress": {
+            "get": {
+                "tags": [
+                    "Progresso"
+                ],
+                "summary": "Consultar progresso no edital, desempenho em quest\u00f5es e XP",
+                "operationId": "progress",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProgressSummary"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/me/journey": {
+            "get": {
+                "tags": [
+                    "Aprendizagem"
+                ],
+                "summary": "Tela inicial: miss\u00e3o recomendada, retomada, progresso e revis\u00f5es",
+                "operationId": "journey",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Journey"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/lessons/{id}": {
+            "get": {
+                "tags": [
+                    "Aprendizagem"
+                ],
+                "summary": "Carregar microli\u00e7\u00e3o",
+                "operationId": "lesson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LessonDto"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/exams": {
+            "get": {
+                "tags": [
+                    "Cat\u00e1logo curricular"
+                ],
+                "summary": "Listar concursos",
+                "operationId": "exams",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExamDto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/exams/{id}/roles": {
+            "get": {
+                "tags": [
+                    "Cat\u00e1logo curricular"
+                ],
+                "summary": "Consultar cargos de um concurso",
+                "operationId": "roles",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RoleDto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "StartSessionRequest": {
+                "type": "object",
+                "properties": {
+                    "kind": {
+                        "type": "string",
+                        "enum": [
+                            "LESSON",
+                            "REINFORCEMENT",
+                            "REVIEW"
+                        ]
+                    },
+                    "missionType": {
+                        "type": "string",
+                        "enum": [
+                            "MICRO",
+                            "STANDARD",
+                            "DEEP"
+                        ]
+                    },
+                    "lessonId": {
+                        "type": "string"
+                    },
+                    "topicId": {
+                        "type": "string"
+                    },
+                    "reviewId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "required": [
+                    "kind"
+                ]
+            },
+            "Feedback": {
+                "type": "object",
+                "properties": {
+                    "questionId": {
+                        "type": "string"
+                    },
+                    "selectedOption": {
+                        "type": "string"
+                    },
+                    "correctOption": {
+                        "type": "string"
+                    },
+                    "correct": {
+                        "type": "boolean"
+                    },
+                    "explanation": {
+                        "type": "string"
+                    },
+                    "options": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FeedbackOption"
+                        }
+                    }
+                }
+            },
+            "FeedbackOption": {
+                "type": "object",
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "rationale": {
+                        "type": "string"
+                    },
+                    "correct": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "LessonContent": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "objective": {
+                        "type": "string"
+                    },
+                    "explanation": {
+                        "type": "string"
+                    },
+                    "example": {
+                        "type": "string"
+                    },
+                    "summary": {
+                        "type": "string"
+                    },
+                    "learningObjectives": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "PublicOption": {
+                "type": "object",
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PublicQuestion": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "topicId": {
+                        "type": "string"
+                    },
+                    "context": {
+                        "type": "string"
+                    },
+                    "statement": {
+                        "type": "string"
+                    },
+                    "difficulty": {
+                        "type": "string",
+                        "enum": [
+                            "FACIL",
+                            "MEDIA",
+                            "DIFICIL"
+                        ]
+                    },
+                    "source": {
+                        "type": "string"
+                    },
+                    "options": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PublicOption"
+                        }
+                    }
+                }
+            },
+            "SessionResult": {
+                "type": "object",
+                "properties": {
+                    "correct": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "total": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "score": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "xpAwarded": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicState": {
+                        "type": "string",
+                        "enum": [
+                            "NOT_STARTED",
+                            "LEARNING",
+                            "NEEDS_REINFORCEMENT",
+                            "IN_REVIEW",
+                            "MASTERED"
+                        ]
+                    },
+                    "masteryMilestone": {
+                        "type": "boolean"
+                    },
+                    "nextReviewAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "SessionView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "kind": {
+                        "type": "string",
+                        "enum": [
+                            "LESSON",
+                            "REINFORCEMENT",
+                            "REVIEW"
+                        ]
+                    },
+                    "missionType": {
+                        "type": "string",
+                        "enum": [
+                            "MICRO",
+                            "STANDARD",
+                            "DEEP"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "IN_PROGRESS",
+                            "PAUSED",
+                            "COMPLETED"
+                        ]
+                    },
+                    "currentStep": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "startedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "lastActivityAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "topic": {
+                        "$ref": "#/components/schemas/TopicRef"
+                    },
+                    "lesson": {
+                        "$ref": "#/components/schemas/LessonContent"
+                    },
+                    "reviewId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "steps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/StepDto"
+                        }
+                    },
+                    "answeredCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "totalQuestions": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "result": {
+                        "$ref": "#/components/schemas/SessionResult"
+                    }
+                }
+            },
+            "StepDto": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "OBJECTIVE",
+                            "EXPLANATION",
+                            "EXAMPLE",
+                            "QUESTION",
+                            "SUMMARY"
+                        ]
+                    },
+                    "question": {
+                        "$ref": "#/components/schemas/PublicQuestion"
+                    },
+                    "feedback": {
+                        "$ref": "#/components/schemas/Feedback"
+                    }
+                }
+            },
+            "TopicRef": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "subjectId": {
+                        "type": "string"
+                    },
+                    "subjectName": {
+                        "type": "string"
+                    }
+                }
+            },
+            "AnswerRequest": {
+                "type": "object",
+                "properties": {
+                    "questionId": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "selectedOption": {
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "[A-Ea-e]"
+                    }
+                },
+                "required": [
+                    "questionId",
+                    "selectedOption"
+                ]
+            },
+            "AnswerResponse": {
+                "type": "object",
+                "properties": {
+                    "feedback": {
+                        "$ref": "#/components/schemas/Feedback"
+                    },
+                    "alreadyAnswered": {
+                        "type": "boolean"
+                    },
+                    "xpEarned": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicState": {
+                        "type": "string",
+                        "enum": [
+                            "NOT_STARTED",
+                            "LEARNING",
+                            "NEEDS_REINFORCEMENT",
+                            "IN_REVIEW",
+                            "MASTERED"
+                        ]
+                    },
+                    "currentStep": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "CompleteReviewRequest": {
+                "type": "object",
+                "properties": {
+                    "sessionId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "required": [
+                    "sessionId"
+                ]
+            },
+            "RegisterRequest": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "maxLength": 255,
+                        "minLength": 0
+                    },
+                    "password": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "minLength": 8
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "minLength": 0
+                    }
+                },
+                "required": [
+                    "displayName",
+                    "email",
+                    "password"
+                ]
+            },
+            "MeResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "selectedRoleId": {
+                        "type": "string"
+                    },
+                    "preferences": {
+                        "$ref": "#/components/schemas/Preferences"
+                    }
+                }
+            },
+            "Preferences": {
+                "type": "object",
+                "properties": {
+                    "strategy": {
+                        "type": "string",
+                        "enum": [
+                            "EDITAL_ORDER",
+                            "UNSTUDIED_FIRST",
+                            "LOW_PERFORMANCE",
+                            "BY_SUBJECT",
+                            "REVIEW_FIRST",
+                            "BOARD_FOCUS"
+                        ]
+                    },
+                    "strategySubjectId": {
+                        "type": "string"
+                    },
+                    "preferredMissionType": {
+                        "type": "string",
+                        "enum": [
+                            "MICRO",
+                            "STANDARD",
+                            "DEEP"
+                        ]
+                    },
+                    "focusMode": {
+                        "type": "boolean"
+                    },
+                    "reduceMotion": {
+                        "type": "boolean"
+                    },
+                    "showTimer": {
+                        "type": "boolean"
+                    },
+                    "streaksEnabled": {
+                        "type": "boolean"
+                    },
+                    "notificationsEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "LoginRequest": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "password": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "email",
+                    "password"
+                ]
+            },
+            "UpdateSessionRequest": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": [
+                            "PAUSE",
+                            "RESUME",
+                            "COMPLETE"
+                        ]
+                    },
+                    "currentStep": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "UpdateProfileRequest": {
+                "type": "object",
+                "properties": {
+                    "displayName": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "minLength": 0
+                    },
+                    "selectedRoleId": {
+                        "type": "string"
+                    },
+                    "strategy": {
+                        "type": "string",
+                        "enum": [
+                            "EDITAL_ORDER",
+                            "UNSTUDIED_FIRST",
+                            "LOW_PERFORMANCE",
+                            "BY_SUBJECT",
+                            "REVIEW_FIRST",
+                            "BOARD_FOCUS"
+                        ]
+                    },
+                    "strategySubjectId": {
+                        "type": "string"
+                    },
+                    "preferredMissionType": {
+                        "type": "string",
+                        "enum": [
+                            "MICRO",
+                            "STANDARD",
+                            "DEEP"
+                        ]
+                    },
+                    "focusMode": {
+                        "type": "boolean"
+                    },
+                    "reduceMotion": {
+                        "type": "boolean"
+                    },
+                    "showTimer": {
+                        "type": "boolean"
+                    },
+                    "streaksEnabled": {
+                        "type": "boolean"
+                    },
+                    "notificationsEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ExamDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "board": {
+                        "type": "string"
+                    },
+                    "year": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "sourceRef": {
+                        "type": "string"
+                    }
+                }
+            },
+            "LessonRef": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "RoleDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "examId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SubjectDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "area": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "examQuestionCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topics": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TopicDto"
+                        }
+                    }
+                }
+            },
+            "SyllabusDto": {
+                "type": "object",
+                "properties": {
+                    "exam": {
+                        "$ref": "#/components/schemas/ExamDto"
+                    },
+                    "role": {
+                        "$ref": "#/components/schemas/RoleDto"
+                    },
+                    "syllabusVersionId": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "sourceRef": {
+                        "type": "string"
+                    },
+                    "reviewedAt": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "subjects": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SubjectDto"
+                        }
+                    }
+                }
+            },
+            "TopicDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "subjectId": {
+                        "type": "string"
+                    },
+                    "parentId": {
+                        "type": "string"
+                    },
+                    "depth": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "editalCode": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "objectives": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "lessons": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LessonRef"
+                        }
+                    },
+                    "lessonCount": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "questionCount": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "coverage": {
+                        "type": "string",
+                        "enum": [
+                            "NONE",
+                            "QUESTIONS_ONLY",
+                            "LESSON_ONLY",
+                            "COVERED"
+                        ]
+                    },
+                    "sourceRef": {
+                        "type": "string"
+                    },
+                    "reviewedAt": {
+                        "type": "string",
+                        "format": "date"
+                    }
+                }
+            },
+            "PendingReview": {
+                "type": "object",
+                "properties": {
+                    "reviewId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "topicId": {
+                        "type": "string"
+                    },
+                    "topicName": {
+                        "type": "string"
+                    },
+                    "dueAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "due": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "EditalProgress": {
+                "type": "object",
+                "properties": {
+                    "topicsTotal": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicsStarted": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicsMastered": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "coveragePercent": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                }
+            },
+            "ProgressSummary": {
+                "type": "object",
+                "properties": {
+                    "xp": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "edital": {
+                        "$ref": "#/components/schemas/EditalProgress"
+                    },
+                    "questions": {
+                        "$ref": "#/components/schemas/QuestionStats"
+                    },
+                    "reviews": {
+                        "$ref": "#/components/schemas/ReviewStats"
+                    },
+                    "subjects": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SubjectProgressDto"
+                        }
+                    },
+                    "topics": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TopicProgressDto"
+                        }
+                    }
+                }
+            },
+            "QuestionStats": {
+                "type": "object",
+                "properties": {
+                    "attempts": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "correct": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "accuracy": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                }
+            },
+            "ReviewStats": {
+                "type": "object",
+                "properties": {
+                    "due": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "scheduled": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "SubjectProgressDto": {
+                "type": "object",
+                "properties": {
+                    "subjectId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "area": {
+                        "type": "string"
+                    },
+                    "topicsTotal": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicsStarted": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicsMastered": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "attempts": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "correct": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "accuracy": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                }
+            },
+            "TopicProgressDto": {
+                "type": "object",
+                "properties": {
+                    "topicId": {
+                        "type": "string"
+                    },
+                    "subjectId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string",
+                        "enum": [
+                            "NOT_STARTED",
+                            "LEARNING",
+                            "NEEDS_REINFORCEMENT",
+                            "IN_REVIEW",
+                            "MASTERED"
+                        ]
+                    },
+                    "attempts": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "correct": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "accuracy": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "lastStudiedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "masteryReachedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "InterruptedSession": {
+                "type": "object",
+                "properties": {
+                    "sessionId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "kind": {
+                        "type": "string",
+                        "enum": [
+                            "LESSON",
+                            "REINFORCEMENT",
+                            "REVIEW"
+                        ]
+                    },
+                    "topicId": {
+                        "type": "string"
+                    },
+                    "lessonId": {
+                        "type": "string"
+                    },
+                    "reviewId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "topicName": {
+                        "type": "string"
+                    },
+                    "lessonTitle": {
+                        "type": "string"
+                    },
+                    "currentStep": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "totalSteps": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "answered": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "totalQuestions": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "lastActivityAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Journey": {
+                "type": "object",
+                "properties": {
+                    "needsOnboarding": {
+                        "type": "boolean"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "exam": {
+                        "$ref": "#/components/schemas/ExamDto"
+                    },
+                    "role": {
+                        "$ref": "#/components/schemas/RoleDto"
+                    },
+                    "recommended": {
+                        "$ref": "#/components/schemas/Mission"
+                    },
+                    "shortAlternative": {
+                        "$ref": "#/components/schemas/Mission"
+                    },
+                    "interrupted": {
+                        "$ref": "#/components/schemas/InterruptedSession"
+                    },
+                    "progress": {
+                        "$ref": "#/components/schemas/JourneyProgress"
+                    },
+                    "dueReviews": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "upcomingReviews": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PendingReview"
+                        }
+                    }
+                }
+            },
+            "JourneyProgress": {
+                "type": "object",
+                "properties": {
+                    "coveragePercent": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "topicsStarted": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicsMastered": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicsTotal": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "attempts": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "accuracy": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "xp": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "Mission": {
+                "type": "object",
+                "properties": {
+                    "kind": {
+                        "type": "string",
+                        "enum": [
+                            "LESSON",
+                            "REINFORCEMENT",
+                            "REVIEW"
+                        ]
+                    },
+                    "missionType": {
+                        "type": "string",
+                        "enum": [
+                            "MICRO",
+                            "STANDARD",
+                            "DEEP"
+                        ]
+                    },
+                    "topicId": {
+                        "type": "string"
+                    },
+                    "topicName": {
+                        "type": "string"
+                    },
+                    "subjectName": {
+                        "type": "string"
+                    },
+                    "lessonId": {
+                        "type": "string"
+                    },
+                    "lessonTitle": {
+                        "type": "string"
+                    },
+                    "reviewId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "estimatedMinutes": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "reason": {
+                        "type": "string"
+                    }
+                }
+            },
+            "LessonDto": {
+                "type": "object",
+                "properties": {
+                    "lesson": {
+                        "$ref": "#/components/schemas/LessonContent"
+                    },
+                    "topic": {
+                        "$ref": "#/components/schemas/TopicRef"
+                    },
+                    "activityCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            }
+        }
+    }
+}

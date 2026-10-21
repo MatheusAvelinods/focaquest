@@ -1,0 +1,18 @@
+id: gov
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: Governança e Regulação do Poder Judiciário
+position: 13
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, Governança e Regulação"
+reviewedAt: 2026-10-21
+topics:
+  - id: gov.lgpd
+    code: "1"
+    name: Lei Geral de Proteção de Dados (Lei nº 13.709/2018)
+    objectives:
+      - Identificar dados pessoais sensíveis e as bases legais de tratamento.
+  - id: gov.cnj
+    code: "2"
+    name: Normas do CNJ sobre governança e gestão de TIC
+    objectives:
+      - Conhecer as diretrizes de governança de TIC aplicáveis ao Judiciário.

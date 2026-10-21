@@ -1,0 +1,216 @@
+questions:
+  - id: q.pt.crase.01
+    topic: pt.regencia-crase
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Assinale a frase em que o sinal indicativo de crase foi empregado corretamente.
+    options:
+      - label: A
+        text: O servidor começou à analisar os autos.
+        rationale: Não há crase antes de verbo, pois verbos não admitem artigo. Correto seria "começou a analisar".
+      - label: B
+        text: A audiência foi marcada para às 14h.
+        rationale: A preposição "para" já está presente; não cabe outra preposição "a". Correto seria "para as 14h".
+      - label: C
+        text: Os documentos foram entregues à juíza responsável.
+        rationale: '"Entregar algo a alguém" exige a preposição "a", que se funde ao artigo "a" de "juíza". Teste — no masculino ficaria "ao juiz".'
+      - label: D
+        text: O processo foi encaminhado à setor competente.
+        rationale: '"Setor" é palavra masculina e não admite o artigo "a". Correto seria "ao setor".'
+      - label: E
+        text: Ele se referiu à todas as partes do processo.
+        rationale: Não ocorre crase antes de pronomes indefinidos como "todas". Correto seria "a todas".
+    correct: C
+    explanation: |
+      Crase é a fusão da preposição "a" com o artigo feminino "a". Ela só ocorre quando o termo
+      regente exige a preposição e a palavra seguinte, feminina, admite artigo. Um teste rápido é
+      trocar a palavra feminina por uma masculina: se surgir "ao", há crase ("entregues ao juiz" →
+      "entregues à juíza").
+
+  - id: q.pt.crase.02
+    topic: pt.regencia-crase
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Assinale a frase em que o emprego do acento grave é FACULTATIVO.
+    options:
+      - label: A
+        text: Entreguei o relatório à minha chefe.
+        rationale: Antes de pronome possessivo feminino no singular, o artigo é opcional; logo, a crase também é ("a minha chefe" ou "à minha chefe").
+      - label: B
+        text: Chegamos à conclusão de que o sistema precisa de ajustes.
+        rationale: '"Chegar a" + "a conclusão": o artigo é necessário e a crase é obrigatória.'
+      - label: C
+        text: A equipe viajou à Bahia para a implantação.
+        rationale: '"Bahia" admite artigo (volto "da" Bahia); por isso a crase é obrigatória.'
+      - label: D
+        text: O técnico saiu às pressas.
+        rationale: Locuções adverbiais femininas ("às pressas", "às vezes") recebem crase obrigatoriamente.
+      - label: E
+        text: Dirigiu-se àquela sala de audiências.
+        rationale: '"Dirigir-se a" + "aquela" resulta em "àquela"; a crase é obrigatória.'
+    correct: A
+    explanation: |
+      Os casos facultativos mais cobrados são: antes de pronome possessivo feminino singular
+      ("à/a minha"), antes de nome próprio feminino de pessoa ("à/a Maria") e depois de "até"
+      ("até à/a porta"). Nos demais itens, a crase é obrigatória.
+
+  - id: q.pt.crase.03
+    topic: pt.regencia-crase
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      Assinale a opção que preenche corretamente as lacunas da frase:
+
+      "O advogado aspirava ___ cargo de juiz e ___ uma vaga no tribunal."
+    options:
+      - label: A
+        text: ao — à
+        rationale: Antes do artigo indefinido "uma" não ocorre crase, pois não há artigo definido "a" para se fundir à preposição.
+      - label: B
+        text: ao — a
+        rationale: '"Aspirar", no sentido de desejar, exige a preposição "a" — "ao cargo" e "a uma vaga" (sem crase antes de "uma").'
+      - label: C
+        text: o — à
+        rationale: No sentido de desejar, "aspirar" é transitivo indireto; "aspirava o cargo" seria o sentido de inalar.
+      - label: D
+        text: o — a
+        rationale: A primeira lacuna exige a preposição "a" combinada ao artigo "o" (ao).
+      - label: E
+        text: do — da
+        rationale: O verbo "aspirar" (desejar) rege a preposição "a", não "de".
+    correct: B
+    explanation: |
+      "Aspirar" com sentido de "desejar, almejar" é transitivo indireto e rege a preposição "a".
+      Na primeira lacuna, preposição + artigo masculino = "ao". Na segunda, "uma" é artigo
+      indefinido: não há artigo definido para fundir com a preposição, logo não há crase.
+
+  - id: q.pt.crase.04
+    topic: pt.regencia-crase
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Assinale a frase correta quanto ao emprego do sinal indicativo de crase.
+    options:
+      - label: A
+        text: A sessão de julgamento começa às 14h.
+        rationale: Diante de horas determinadas, ocorre crase ("às 14h"; no masculino, "ao meio-dia").
+      - label: B
+        text: O atendimento funciona de 8h às 18h.
+        rationale: Falta paralelismo — "de ... a" (sem artigo) ou "das ... às" (com artigo). "De 8h às 18h" mistura as construções.
+      - label: C
+        text: O prazo vence daqui à duas semanas.
+        rationale: Tempo futuro com "daqui a" não leva artigo; e "duas" é numeral que não admite artigo aqui.
+      - label: D
+        text: O réu ficou frente à frente com a vítima.
+        rationale: Não há crase entre palavras repetidas ("frente a frente", "cara a cara").
+      - label: E
+        text: A compra foi feita à prazo.
+        rationale: '"Prazo" é masculino; não admite artigo feminino. Correto: "a prazo".'
+    correct: A
+    explanation: |
+      Horas determinadas recebem crase: "às 14h", "à uma hora". Atenção ao paralelismo em
+      intervalos ("das 8h às 18h" ou "de 8h a 18h") e à proibição entre palavras repetidas.
+
+  - id: q.pt.conc.01
+    topic: pt.concordancia
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Assinale a frase que respeita a norma-padrão quanto à concordância verbal.
+    options:
+      - label: A
+        text: Precisam-se de técnicos qualificados.
+        rationale: Com verbo transitivo indireto ("precisar de"), o "se" indetermina o sujeito e o verbo fica no singular — "Precisa-se de técnicos".
+      - label: B
+        text: Haviam muitos processos pendentes.
+        rationale: '"Haver" no sentido de existir é impessoal e fica no singular — "Havia muitos processos".'
+      - label: C
+        text: Alugam-se salas no edifício do fórum.
+        rationale: Com verbo transitivo direto, o "se" é pronome apassivador; "salas" é o sujeito e o verbo concorda com ele (salas são alugadas).
+      - label: D
+        text: Fazem três meses que o sistema foi implantado.
+        rationale: '"Fazer" indicando tempo decorrido é impessoal — "Faz três meses".'
+      - label: E
+        text: Devem haver soluções para o problema.
+        rationale: Em locução com verbo impessoal, o auxiliar também fica no singular — "Deve haver soluções".
+    correct: C
+    explanation: |
+      Diferencie os dois papéis do "se": com verbo transitivo direto, é apassivador e o verbo
+      concorda com o sujeito ("Vendem-se casas"); com verbo transitivo indireto, indetermina o
+      sujeito e o verbo fica no singular ("Precisa-se de técnicos"). Verbos impessoais ("haver" =
+      existir; "fazer" = tempo) ficam no singular e transmitem essa impessoalidade ao auxiliar.
+
+  - id: q.pt.conc.02
+    topic: pt.concordancia
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      Assinale a opção que preenche corretamente as lacunas:
+
+      "Ainda ___ dúvidas sobre o novo sistema, mas já ___ duas semanas de testes."
+    options:
+      - label: A
+        text: existe — faz
+        rationale: '"Existir" é verbo pessoal e deve concordar com o sujeito "dúvidas" (plural).'
+      - label: B
+        text: existem — fazem
+        rationale: A primeira forma está correta, mas "fazer" indicando tempo decorrido é impessoal e fica no singular.
+      - label: C
+        text: existem — faz
+        rationale: '"Existir" concorda com "dúvidas"; "fazer" (tempo decorrido) é impessoal.'
+      - label: D
+        text: existe — fazem
+        rationale: As duas concordâncias estão invertidas em relação à norma-padrão.
+      - label: E
+        text: existirão — fazem
+        rationale: Além de alterar o tempo verbal sem motivo, mantém o erro com "fazer" impessoal.
+    correct: C
+    explanation: |
+      Diferentemente de "haver", o verbo "existir" é pessoal: "Existem dúvidas" equivale a "Há
+      dúvidas". Já "fazer" com sentido de tempo decorrido não tem sujeito e fica na 3ª pessoa do
+      singular: "Faz duas semanas".
+
+  - id: q.pt.conc.03
+    topic: pt.concordancia
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Assinale a frase que apresenta ERRO de concordância verbal.
+    options:
+      - label: A
+        text: Faltam ainda três assinaturas no documento.
+        rationale: Correta quanto à concordância — o sujeito posposto "três assinaturas" exige o plural.
+      - label: B
+        text: Chegaram ao tribunal os novos computadores.
+        rationale: Correta — o verbo concorda com o sujeito posposto "os novos computadores".
+      - label: C
+        text: Analisou-se os recursos interpostos pela defesa.
+        rationale: Esta é a frase com erro. "Analisar" é transitivo direto; o "se" é apassivador e "os recursos" é o sujeito — "Analisaram-se os recursos".
+      - label: D
+        text: Trata-se de questões complexas.
+        rationale: Correta — "tratar de" é transitivo indireto; o sujeito é indeterminado e o verbo fica no singular.
+      - label: E
+        text: Houve atrasos na entrega do sistema.
+        rationale: Correta — "haver" no sentido de existir/ocorrer é impessoal.
+    correct: C
+    explanation: |
+      A FGV costuma explorar o sujeito posposto e a partícula "se". Para conferir, transforme na
+      voz passiva analítica: "Os recursos foram analisados" → "Analisaram-se os recursos".

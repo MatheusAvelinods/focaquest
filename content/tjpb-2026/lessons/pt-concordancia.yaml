@@ -1,0 +1,37 @@
+id: l.pt.concordancia
+topic: pt.concordancia
+title: Concordância verbal com "se", "haver" e "fazer"
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Acertar a concordância verbal nos três casos que a FGV mais cobra — partícula "se", verbos impessoais e sujeito posposto.
+explanation: |
+  **1. Partícula "se".** Descubra a transitividade do verbo:
+
+  - **Transitivo direto** (alugar algo) → o "se" é apassivador e o verbo concorda com o sujeito:
+    "Alugam-**se** salas" (= salas são alugadas).
+  - **Transitivo indireto** (precisar **de**) → o "se" indetermina o sujeito e o verbo fica no
+    singular: "Precisa-**se** de técnicos".
+
+  **2. Verbos impessoais** ficam no singular — e o auxiliar acompanha:
+
+  - "haver" = existir/ocorrer: "**Houve** atrasos", "**Deve haver** soluções";
+  - "fazer" = tempo decorrido: "**Faz** dois anos".
+
+  Atenção: "existir" **não** é impessoal — "**Existem** dúvidas".
+
+  **3. Sujeito posposto.** Quando o sujeito vem depois do verbo, encontre-o e faça a concordância
+  normalmente: "**Chegaram** os novos computadores".
+example: |
+  "Analisaram-se os recursos da defesa."
+
+  Voz passiva analítica: "Os recursos **foram analisados**" → sujeito plural, verbo no plural.
+
+  "Trata-se de questões complexas."
+
+  "Tratar **de**" é transitivo indireto → verbo no singular.
+summary: Com "se", veja a transitividade; "haver" (existir) e "fazer" (tempo) não vão para o plural; "existir" vai.
+activities:
+  - q.pt.conc.01
+  - q.pt.conc.02
+  - q.pt.conc.03

@@ -1,0 +1,31 @@
+id: l.devops.cicd
+topic: devops.cicd
+title: CI, entrega contínua e implantação contínua
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Diferenciar integração contínua, entrega contínua e implantação contínua e reconhecer suas práticas.
+explanation: |
+  **Integração contínua (CI):** desenvolvedores integram mudanças pequenas ao ramo principal com
+  frequência (ao menos diariamente). Cada integração dispara **build e testes automatizados**.
+  Build quebrado é prioridade: corrige-se ou reverte-se imediatamente.
+
+  **Entrega contínua (continuous delivery):** além da CI, o software é mantido **sempre
+  implantável**. A ida para produção é um botão — uma **decisão manual** de negócio.
+
+  **Implantação contínua (continuous deployment):** toda mudança que passa no pipeline vai
+  **automaticamente** para produção, sem intervenção humana.
+
+  O **pipeline** típico tem etapas como build → testes de unidade → análise estática → testes de
+  integração → publicação do artefato → implantação.
+example: |
+  Uma equipe usa GitHub Actions: cada pull request roda os testes; após o merge, o pipeline gera
+  uma imagem Docker e a implanta em homologação. Para produção, o gestor aprova manualmente.
+
+  Isso é **entrega contínua**. Se a produção recebesse a imagem automaticamente, seria
+  **implantação contínua**.
+summary: CI = integrar e testar sempre. Delivery = sempre pronto, liberação manual. Deployment = liberação automática.
+activities:
+  - q.devops.cicd.01
+  - q.devops.cicd.02
+  - q.devops.cicd.03

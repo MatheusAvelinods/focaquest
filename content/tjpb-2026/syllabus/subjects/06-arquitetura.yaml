@@ -1,0 +1,28 @@
+id: arq
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: Arquitetura de Software e Padrões
+position: 6
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, Arquitetura de Software"
+reviewedAt: 2026-10-21
+topics:
+  - id: arq.solid
+    code: "1"
+    name: Princípios SOLID e orientação a objetos
+    objectives:
+      - Identificar violações dos princípios SOLID em trechos de projeto.
+  - id: arq.padroes
+    code: "2"
+    name: Padrões de projeto (GoF)
+    objectives:
+      - Associar padrões criacionais, estruturais e comportamentais a problemas típicos.
+  - id: arq.estilos
+    code: "3"
+    name: Estilos arquiteturais — camadas, monólito modular e microsserviços
+    objectives:
+      - Comparar vantagens e custos de monólitos modulares e microsserviços.
+  - id: arq.rest
+    code: "4"
+    name: APIs REST — métodos, códigos de status e idempotência
+    objectives:
+      - Identificar métodos HTTP seguros e idempotentes.

@@ -1,0 +1,13 @@
+{
+  "name": "FocaQuest",
+  "short_name": "FocaQuest",
+  "description": "Aprendizagem adaptativa para concursos públicos, em missões curtas.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f6f2",
+  "theme_color": "#0f6b5c",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

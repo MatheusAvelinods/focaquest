@@ -1,0 +1,20 @@
+# Concurso, cargos e versão do edital.
+# ATENÇÃO EDITORIAL: a estrutura abaixo foi organizada a partir do PRD (v2.0). Os itens do
+# conteúdo programático precisam ser conferidos, um a um, com o edital oficial publicado.
+exam:
+  id: tjpb-2026
+  name: Tribunal de Justiça da Paraíba — 2026
+  board: FGV
+  year: 2026
+  description: Concurso para servidores do TJPB. Prova objetiva com 60 questões de múltipla escolha (5 alternativas).
+  sourceRef: "Edital TJPB 2026 (FGV) — conferir número e data de publicação"
+  reviewedAt: 2026-10-21
+roles:
+  - id: tjpb-2026-analista-ti-dev
+    name: Analista Judiciário — Tecnologia da Informação — Desenvolvimento de Sistemas
+    description: Conhecimentos gerais (20 questões) e conhecimentos específicos de TI (40 questões).
+    syllabus:
+      id: tjpb-2026-analista-ti-dev-v1
+      version: "1"
+      sourceRef: "Edital TJPB 2026, Anexo de conteúdo programático — rascunho pendente de revisão"
+      reviewedAt: 2026-10-21

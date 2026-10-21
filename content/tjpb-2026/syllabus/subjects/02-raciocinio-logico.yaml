@@ -1,0 +1,30 @@
+id: rlm
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: GERAIS
+name: Raciocínio Lógico e Matemático
+examQuestionCount: 10
+position: 2
+sourceRef: "Edital TJPB 2026 — Conhecimentos Gerais, Raciocínio Lógico e Matemático"
+reviewedAt: 2026-10-21
+topics:
+  - id: rlm.proposicoes
+    code: "1"
+    name: Proposições, conectivos, equivalências e negações
+    objectives:
+      - Negar proposições compostas, em especial condicionais e conjunções.
+      - Reconhecer equivalências lógicas da condicional.
+  - id: rlm.argumentos
+    code: "2"
+    name: Argumentação e diagramas lógicos
+    objectives:
+      - Avaliar a validade de argumentos com quantificadores.
+  - id: rlm.porcentagem
+    code: "3"
+    name: Razões, proporções e porcentagem
+    objectives:
+      - Calcular aumentos e descontos sucessivos.
+  - id: rlm.contagem
+    code: "4"
+    name: Princípios de contagem e probabilidade
+    objectives:
+      - Aplicar o princípio multiplicativo e calcular probabilidades simples.

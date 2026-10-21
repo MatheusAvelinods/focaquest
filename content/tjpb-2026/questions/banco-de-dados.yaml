@@ -1,0 +1,218 @@
+questions:
+  - id: q.bd.norm.01
+    topic: bd.normalizacao
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    context: |
+      Uma aplicação armazena dados de clientes e pedidos na mesma tabela:
+      PEDIDO(num_pedido, data, cpf_cliente, nome_cliente, telefone_cliente, valor_total),
+      cuja chave primária é num_pedido. Cada cliente pode fazer muitos pedidos.
+    statement: Assinale a alternativa que representa uma modelagem adequada para eliminar a redundância.
+    options:
+      - label: A
+        text: Manter a tabela e criar um índice sobre cpf_cliente.
+        rationale: Índices aceleram consultas, mas não eliminam a repetição de nome e telefone a cada pedido nem as anomalias de atualização.
+      - label: B
+        text: Criar CLIENTE(cpf_cliente, nome_cliente, telefone_cliente) e PEDIDO(num_pedido, data, cpf_cliente, valor_total), com cpf_cliente como chave estrangeira em PEDIDO.
+        rationale: Os dados do cliente passam a ser armazenados uma única vez, e a chave estrangeira preserva o relacionamento.
+      - label: C
+        text: Criar CLIENTE(nome_cliente, telefone_cliente) e PEDIDO(num_pedido, data, valor_total), sem atributo em comum.
+        rationale: Remove a redundância à custa de perder o vínculo entre pedido e cliente.
+      - label: D
+        text: Tornar a chave primária composta por (num_pedido, cpf_cliente).
+        rationale: A chave composta não remove a dependência de nome e telefone em relação ao CPF e ainda cria dependência parcial.
+      - label: E
+        text: Guardar a lista de pedidos de cada cliente em um campo de texto da tabela CLIENTE.
+        rationale: Campos multivalorados violam a 1FN e dificultam consultas e integridade.
+    correct: B
+    explanation: |
+      Em PEDIDO há a dependência transitiva num_pedido → cpf_cliente → (nome_cliente,
+      telefone_cliente). Atributos não chave que dependem de outro atributo não chave violam a 3FN
+      e causam anomalias: mudar o telefone exige alterar várias linhas. A decomposição em CLIENTE e
+      PEDIDO, ligadas por chave estrangeira, resolve o problema sem perder informação.
+
+  - id: q.bd.norm.02
+    topic: bd.normalizacao
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    context: |
+      ITEM_PEDIDO(num_pedido, cod_produto, quantidade, descricao_produto), com chave primária
+      composta (num_pedido, cod_produto).
+    statement: Sobre a tabela acima, é correto afirmar que
+    options:
+      - label: A
+        text: viola a 1FN, pois possui chave primária composta.
+        rationale: Chave composta não viola a 1FN; a 1FN trata de atributos atômicos e ausência de grupos repetitivos.
+      - label: B
+        text: viola a 2FN, pois descricao_produto depende apenas de parte da chave.
+        rationale: cod_produto → descricao_produto é uma dependência parcial da chave composta.
+      - label: C
+        text: está na 2FN, mas viola a 3FN, pois quantidade depende de descricao_produto.
+        rationale: quantidade depende da chave inteira (pedido e produto), não da descrição; e a tabela nem chega a estar na 2FN.
+      - label: D
+        text: está na FNBC, pois todo determinante é chave candidata.
+        rationale: cod_produto determina descricao_produto e não é chave candidata; logo não está na FNBC.
+      - label: E
+        text: está normalizada, pois quantidade depende da chave inteira.
+        rationale: Basta um atributo com dependência parcial para violar a 2FN.
+    correct: B
+    explanation: |
+      A 2FN exige que todo atributo não chave dependa da chave INTEIRA. Como descricao_produto
+      depende só de cod_produto, a solução é mover a descrição para PRODUTO(cod_produto,
+      descricao_produto).
+
+  - id: q.bd.norm.03
+    topic: bd.normalizacao
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      Uma tabela SERVIDOR armazena, na coluna telefones, valores como
+      "(83) 3216-0000; (83) 99999-0000". Essa modelagem
+    options:
+      - label: A
+        text: viola a primeira forma normal, por armazenar um atributo multivalorado.
+        rationale: A 1FN exige atributos atômicos; vários telefones em uma única coluna formam um grupo repetitivo.
+      - label: B
+        text: viola a segunda forma normal, pois o telefone depende parcialmente da chave.
+        rationale: A 2FN trata de dependência parcial de chave composta, o que não é o problema descrito.
+      - label: C
+        text: viola apenas a terceira forma normal, por dependência transitiva.
+        rationale: Não há dependência transitiva descrita; o problema é a falta de atomicidade.
+      - label: D
+        text: está correta, desde que o separador seja padronizado.
+        rationale: Um separador padronizado não torna o valor atômico nem permite integridade e consultas eficientes.
+      - label: E
+        text: é obrigatória quando a quantidade de telefones varia por servidor.
+        rationale: Quantidade variável se resolve com uma tabela TELEFONE relacionada ao servidor.
+    correct: A
+    explanation: |
+      A solução usual é criar TELEFONE(id_servidor, numero), com uma linha por telefone e chave
+      estrangeira para SERVIDOR.
+
+  - id: q.bd.norm.04
+    topic: bd.normalizacao
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      Em uma tabela não normalizada, o endereço de um fornecedor aparece repetido em centenas de
+      linhas. Ao mudar de endereço, apenas parte das linhas é atualizada. Esse problema é chamado de
+    options:
+      - label: A
+        text: anomalia de inserção.
+        rationale: Anomalia de inserção é não conseguir registrar um dado sem outro (por exemplo, um fornecedor sem pedido).
+      - label: B
+        text: anomalia de exclusão.
+        rationale: Anomalia de exclusão é perder informação ao apagar uma linha (por exemplo, o único pedido de um fornecedor).
+      - label: C
+        text: anomalia de atualização.
+        rationale: A mesma informação armazenada em vários lugares pode ficar inconsistente quando apenas parte é alterada.
+      - label: D
+        text: violação de integridade referencial.
+        rationale: Integridade referencial trata de chaves estrangeiras apontando para registros existentes.
+      - label: E
+        text: deadlock.
+        rationale: Deadlock é um impasse entre transações concorrentes, não um problema de modelagem.
+    correct: C
+    explanation: A normalização reduz redundância e, com ela, as anomalias de inserção, exclusão e atualização.
+
+  - id: q.bd.sql.01
+    topic: bd.sql
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    context: |
+      SERVIDOR(id, nome, setor_id) e SETOR(id, nome). Alguns servidores recém-empossados ainda não
+      têm setor (setor_id nulo).
+    statement: Qual consulta lista TODOS os servidores, com o nome do setor quando houver?
+    options:
+      - label: A
+        text: SELECT s.nome, t.nome FROM servidor s INNER JOIN setor t ON s.setor_id = t.id;
+        rationale: INNER JOIN descarta os servidores sem setor correspondente.
+      - label: B
+        text: SELECT s.nome, t.nome FROM servidor s LEFT JOIN setor t ON s.setor_id = t.id;
+        rationale: LEFT JOIN preserva todas as linhas da tabela à esquerda; sem correspondência, t.nome vem nulo.
+      - label: C
+        text: SELECT s.nome, t.nome FROM servidor s RIGHT JOIN setor t ON s.setor_id = t.id;
+        rationale: RIGHT JOIN preserva todos os SETORES, não todos os servidores.
+      - label: D
+        text: SELECT s.nome, t.nome FROM servidor s, setor t WHERE s.setor_id = t.id;
+        rationale: A junção implícita com WHERE equivale a um INNER JOIN.
+      - label: E
+        text: SELECT s.nome, t.nome FROM servidor s CROSS JOIN setor t;
+        rationale: CROSS JOIN gera o produto cartesiano — cada servidor combinado com todos os setores.
+    correct: B
+    explanation: |
+      INNER JOIN retorna só os pares com correspondência. LEFT JOIN mantém todas as linhas da
+      esquerda, preenchendo com NULL quando não há par à direita.
+
+  - id: q.bd.sql.02
+    topic: bd.sql
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Qual consulta retorna os setores com MAIS de 10 servidores?
+    options:
+      - label: A
+        text: SELECT setor_id, COUNT(*) FROM servidor WHERE COUNT(*) > 10 GROUP BY setor_id;
+        rationale: Funções de agregação não podem ser usadas no WHERE, que filtra linhas antes do agrupamento.
+      - label: B
+        text: SELECT setor_id, COUNT(*) FROM servidor GROUP BY setor_id HAVING COUNT(*) > 10;
+        rationale: HAVING filtra os grupos depois da agregação.
+      - label: C
+        text: SELECT setor_id, COUNT(*) FROM servidor HAVING COUNT(*) > 10;
+        rationale: Sem GROUP BY, a contagem é feita sobre a tabela inteira e setor_id não pode ser projetado assim.
+      - label: D
+        text: SELECT setor_id, COUNT(*) FROM servidor GROUP BY setor_id ORDER BY COUNT(*) > 10;
+        rationale: ORDER BY apenas ordena; não remove os setores com 10 servidores ou menos.
+      - label: E
+        text: SELECT setor_id FROM servidor WHERE setor_id > 10;
+        rationale: Compara o identificador do setor com 10, o que nada tem a ver com a quantidade de servidores.
+    correct: B
+    explanation: |
+      Ordem lógica: FROM → WHERE (linhas) → GROUP BY → HAVING (grupos) → SELECT → ORDER BY.
+      Condições sobre agregações ficam no HAVING.
+
+  - id: q.bd.sql.03
+    topic: bd.sql
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      A tabela CONTATO tem 5 linhas; em 2 delas a coluna email é NULL. O resultado de
+      SELECT COUNT(*), COUNT(email) FROM contato; é
+    options:
+      - label: A
+        text: 5 e 5
+        rationale: COUNT(coluna) ignora valores nulos.
+      - label: B
+        text: 5 e 3
+        rationale: COUNT(*) conta linhas; COUNT(email) conta apenas valores não nulos.
+      - label: C
+        text: 3 e 3
+        rationale: COUNT(*) conta todas as linhas, inclusive as que têm colunas nulas.
+      - label: D
+        text: 3 e 5
+        rationale: Inverte o comportamento das duas funções.
+      - label: E
+        text: 5 e 2
+        rationale: 2 é a quantidade de nulos, que justamente NÃO entram em COUNT(email).
+    correct: B
+    explanation: COUNT(*) conta linhas; COUNT(expr) conta valores não nulos de expr; COUNT(DISTINCT expr) conta valores distintos não nulos.

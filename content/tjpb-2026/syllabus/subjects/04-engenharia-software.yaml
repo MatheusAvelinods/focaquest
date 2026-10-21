@@ -1,0 +1,29 @@
+id: es
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: Engenharia de Software e Práticas Ágeis
+position: 4
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, Engenharia de Software"
+reviewedAt: 2026-10-21
+topics:
+  - id: es.scrum
+    code: "1"
+    name: Scrum — papéis, eventos e artefatos
+    objectives:
+      - Identificar as responsabilidades de Product Owner, Scrum Master e Developers.
+      - Reconhecer o propósito de cada evento do Scrum.
+  - id: es.kanban
+    code: "2"
+    name: Kanban e métricas de fluxo
+    objectives:
+      - Explicar o papel do limite de WIP e do lead time.
+  - id: es.testes
+    code: "3"
+    name: Testes de software — níveis, TDD e pirâmide de testes
+    objectives:
+      - Diferenciar testes de unidade, integração e ponta a ponta.
+  - id: es.requisitos
+    code: "4"
+    name: Engenharia de requisitos e histórias de usuário
+    objectives:
+      - Distinguir requisitos funcionais e não funcionais.

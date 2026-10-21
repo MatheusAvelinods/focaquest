@@ -1,0 +1,18 @@
+id: ds
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: Design de Sistemas
+position: 5
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, Design de Sistemas"
+reviewedAt: 2026-10-21
+topics:
+  - id: ds.escalabilidade
+    code: "1"
+    name: Escalabilidade, cache e balanceamento de carga
+    objectives:
+      - Comparar escalabilidade vertical e horizontal.
+  - id: ds.mensageria
+    code: "2"
+    name: Mensageria e comunicação assíncrona
+    objectives:
+      - Reconhecer quando usar filas e eventos em vez de chamadas síncronas.

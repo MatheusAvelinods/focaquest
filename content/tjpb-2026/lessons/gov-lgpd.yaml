@@ -1,0 +1,38 @@
+id: l.gov.lgpd
+topic: gov.lgpd
+title: LGPD — dados sensíveis, agentes e bases legais
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Identificar dados pessoais sensíveis, os agentes de tratamento e as bases legais aplicáveis ao poder público.
+explanation: |
+  A **Lei nº 13.709/2018 (LGPD)** se aplica a pessoas naturais e jurídicas, de direito público ou
+  privado, que tratam dados pessoais.
+
+  **Dado pessoal:** informação relacionada a pessoa natural identificada ou identificável.
+
+  **Dado pessoal sensível (art. 5º, II):** origem racial ou étnica, convicção religiosa, opinião
+  política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político,
+  dado referente à saúde ou à vida sexual, dado genético ou biométrico.
+
+  **Agentes e atores:**
+
+  - **controlador:** toma as decisões sobre o tratamento;
+  - **operador:** trata os dados em nome do controlador;
+  - **encarregado (DPO):** canal de comunicação entre controlador, titulares e ANPD.
+
+  **Bases legais (art. 7º):** o consentimento é só uma delas. Há também cumprimento de obrigação
+  legal, execução de políticas públicas, exercício regular de direitos em processo judicial,
+  proteção da vida, legítimo interesse, entre outras. O poder público trata dados para atender à
+  sua finalidade pública (art. 23).
+example: |
+  Um tribunal implanta reconhecimento facial na entrada do fórum.
+
+  - A imagem facial usada para identificação é **dado biométrico → sensível**;
+  - o tribunal é o **controlador**; a empresa contratada que opera o sistema é a **operadora**;
+  - o tratamento deve ter base legal adequada e respeitar finalidade, necessidade e transparência.
+summary: Sensível = rol do art. 5º, II. Controlador decide, operador executa, encarregado comunica. Consentimento não é a única base legal.
+activities:
+  - q.gov.lgpd.01
+  - q.gov.lgpd.02
+  - q.gov.lgpd.03

@@ -1,0 +1,41 @@
+id: l.seg.owasp
+topic: seg.owasp
+title: Injeção, XSS e controle de acesso
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Reconhecer injeção de SQL, XSS e quebra de controle de acesso, e indicar a contramedida principal de cada um.
+explanation: |
+  O **OWASP Top 10** lista os riscos mais críticos em aplicações web. Três deles aparecem muito
+  em provas:
+
+  **Quebra de controle de acesso** — o usuário acessa algo que não deveria (por exemplo, trocando
+  um ID na URL). Defesa: **verificar a autorização no servidor** em toda requisição.
+
+  **Injeção (SQL, comandos, LDAP)** — a entrada do usuário vira parte de um comando.
+  Defesa: **consultas parametrizadas** (prepared statements) e ORM bem usado; validação de
+  entrada e privilégio mínimo como camadas extras.
+
+  **Cross-Site Scripting (XSS)** — um script injetado executa no navegador da vítima.
+  Pode ser **armazenado** (gravado no servidor), **refletido** (vem na própria requisição) ou
+  **baseado em DOM**. Defesa: **codificação de saída conforme o contexto**, CSP e cookies HttpOnly.
+example: |
+  **Vulnerável:**
+
+  ```java
+  "SELECT * FROM processo WHERE numero = '" + numero + "'"
+  ```
+
+  **Seguro:**
+
+  ```java
+  PreparedStatement ps = con.prepareStatement("SELECT * FROM processo WHERE numero = ?");
+  ps.setString(1, numero);
+  ```
+
+  O valor de "numero" nunca altera a estrutura da consulta.
+summary: Injeção → parametrize; XSS → codifique a saída; controle de acesso → autorize no servidor, sempre.
+activities:
+  - q.seg.owasp.01
+  - q.seg.owasp.02
+  - q.seg.owasp.03

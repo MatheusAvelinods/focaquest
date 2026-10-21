@@ -1,0 +1,37 @@
+id: l.pt.crase
+topic: pt.regencia-crase
+title: Crase sem decoreba — o teste da troca
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Decidir, em segundos, se uma frase pede o acento grave, usando o teste da troca pelo masculino.
+explanation: |
+  **Crase não é acento: é uma fusão.** Ela acontece quando a preposição **a** (exigida por um
+  verbo ou nome) encontra o artigo feminino **a** da palavra seguinte: a + a = **à**.
+
+  Por isso, são necessárias duas condições:
+
+  1. o termo anterior **exige a preposição "a"** (ir a, referir-se a, entregar a);
+  2. a palavra seguinte é **feminina e admite artigo**.
+
+  **Teste da troca:** substitua a palavra feminina por uma masculina. Se aparecer **ao**, há crase.
+  "Fui **à** reunião" → "Fui **ao** encontro".
+
+  **Nunca há crase** antes de verbo, de palavra masculina, de pronomes como "todas", "esta" e
+  "ela", de artigo indefinido ("a uma") e entre palavras repetidas ("frente a frente").
+
+  **Crase facultativa:** antes de possessivo feminino singular ("à/a minha"), de nome próprio
+  feminino de pessoa ("à/a Ana") e depois de "até".
+example: |
+  "Os autos foram enviados **à** vara criminal."
+
+  Troca: "Os autos foram enviados **ao** juízo criminal." → apareceu "ao", então há crase.
+
+  "O servidor começou **a** analisar o pedido."
+
+  "Analisar" é verbo e não admite artigo → sem crase.
+summary: Crase = preposição "a" + artigo "a". Na dúvida, troque por uma palavra masculina e veja se aparece "ao".
+activities:
+  - q.pt.crase.01
+  - q.pt.crase.02
+  - q.pt.crase.03

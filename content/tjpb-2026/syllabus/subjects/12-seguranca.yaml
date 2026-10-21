@@ -1,0 +1,23 @@
+id: seg
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: Segurança da Informação e Qualidade de Software
+position: 12
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, Segurança da Informação"
+reviewedAt: 2026-10-21
+topics:
+  - id: seg.owasp
+    code: "1"
+    name: Desenvolvimento seguro — OWASP Top 10
+    objectives:
+      - Reconhecer injeção de SQL e XSS e suas contramedidas.
+  - id: seg.criptografia
+    code: "2"
+    name: Criptografia simétrica, assimétrica e funções hash
+    objectives:
+      - Diferenciar confidencialidade, integridade e autenticidade.
+  - id: seg.qualidade
+    code: "3"
+    name: Qualidade de software — ISO/IEC 25010 e análise estática
+    objectives:
+      - Associar características de qualidade a exemplos.

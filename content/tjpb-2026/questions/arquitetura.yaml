@@ -1,0 +1,182 @@
+questions:
+  - id: q.arq.solid.01
+    topic: arq.solid
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    context: |
+      A classe RelatorioProcessual calcula as estatísticas da vara, gera o arquivo PDF e envia o
+      relatório por e-mail aos magistrados.
+    statement: Esse projeto viola principalmente o princípio
+    options:
+      - label: A
+        text: da Responsabilidade Única (SRP).
+        rationale: A classe tem três motivos distintos para mudar — regra de cálculo, formato do arquivo e forma de envio.
+      - label: B
+        text: da Substituição de Liskov (LSP).
+        rationale: LSP trata de subtipos substituírem seus tipos-base; não há herança descrita.
+      - label: C
+        text: da Segregação de Interfaces (ISP).
+        rationale: ISP trata de interfaces grandes demais impostas a clientes; o problema descrito é de uma classe concreta.
+      - label: D
+        text: da Inversão de Dependência (DIP).
+        rationale: Pode haver acoplamento, mas o problema central é acumular responsabilidades.
+      - label: E
+        text: Aberto/Fechado (OCP).
+        rationale: OCP trata de estender comportamento sem modificar código existente; não é o foco aqui.
+    correct: A
+    explanation: SRP — um módulo deve ter um, e apenas um, motivo para mudar. Separe cálculo, formatação e envio em componentes distintos.
+
+  - id: q.arq.solid.02
+    topic: arq.solid
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    context: |
+      ```
+      double calcularCustas(Processo p) {
+          switch (p.getTipo()) {
+              case "CIVEL": return ...;
+              case "CRIMINAL": return ...;
+              case "TRABALHISTA": return ...;
+          }
+      }
+      ```
+
+      A cada novo tipo de processo, o método precisa ser alterado.
+    statement: O princípio violado e uma solução adequada são
+    options:
+      - label: A
+        text: Aberto/Fechado (OCP); usar polimorfismo, por exemplo com o padrão Strategy, para cada tipo de cálculo.
+        rationale: Novos tipos passam a ser adicionados com novas classes, sem modificar o código existente.
+      - label: B
+        text: Responsabilidade Única; dividir o método em vários métodos privados.
+        rationale: Métodos privados não evitam a alteração da classe a cada novo tipo.
+      - label: C
+        text: Substituição de Liskov; tornar a classe Processo final.
+        rationale: Não há subtipo quebrando contrato; e impedir herança não resolve o problema.
+      - label: D
+        text: Segregação de Interfaces; criar uma interface com um método por tipo de processo.
+        rationale: Isso aumentaria a interface e ainda exigiria alterações a cada novo tipo.
+      - label: E
+        text: Inversão de Dependência; substituir o switch por if/else encadeados.
+        rationale: Trocar switch por if/else mantém exatamente o mesmo problema.
+    correct: A
+    explanation: OCP — entidades devem estar abertas para extensão e fechadas para modificação. Condicionais sobre "tipo" costumam indicar a necessidade de polimorfismo.
+
+  - id: q.arq.solid.03
+    topic: arq.solid
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      A classe Quadrado herda de Retangulo e sobrescreve setLargura para também alterar a altura.
+      Um código que recebe um Retangulo, define largura 5 e altura 4 e espera área 20 passa a
+      obter 16 quando recebe um Quadrado. O princípio violado é o
+    options:
+      - label: A
+        text: da Responsabilidade Única.
+        rationale: Cada classe continua com uma responsabilidade; o problema é o contrato da herança.
+      - label: B
+        text: Aberto/Fechado.
+        rationale: Nada precisou ser modificado para estender; o problema é o comportamento do subtipo.
+      - label: C
+        text: da Substituição de Liskov.
+        rationale: Um subtipo deve poder substituir o tipo-base sem quebrar as expectativas de quem o usa.
+      - label: D
+        text: da Segregação de Interfaces.
+        rationale: Não há interface inchada forçando implementações desnecessárias.
+      - label: E
+        text: da Inversão de Dependência.
+        rationale: O código cliente já depende do tipo mais abstrato (Retangulo); o problema está no subtipo.
+    correct: C
+    explanation: LSP — se S é subtipo de T, objetos de T podem ser substituídos por objetos de S sem alterar as propriedades desejáveis do programa.
+
+  - id: q.arq.rest.01
+    topic: arq.rest
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV), com base na RFC 9110
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Segundo a semântica do HTTP, são métodos idempotentes
+    options:
+      - label: A
+        text: POST e PUT.
+        rationale: POST não é idempotente — repetir a requisição pode criar vários recursos.
+      - label: B
+        text: PUT e DELETE.
+        rationale: Repetir um PUT ou um DELETE deixa o servidor no mesmo estado que uma única execução.
+      - label: C
+        text: POST e PATCH.
+        rationale: Nenhum dos dois é idempotente por definição.
+      - label: D
+        text: apenas GET.
+        rationale: GET é idempotente, mas não é o único (HEAD, OPTIONS, PUT e DELETE também são).
+      - label: E
+        text: POST e DELETE.
+        rationale: POST não é idempotente.
+    correct: B
+    explanation: |
+      Métodos seguros (não alteram estado) — GET, HEAD, OPTIONS. Idempotentes — os seguros, mais
+      PUT e DELETE. POST e PATCH não são idempotentes por definição.
+
+  - id: q.arq.rest.02
+    topic: arq.rest
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV), com base na RFC 9110
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Um usuário autenticado tenta acessar um recurso para o qual não tem permissão. O código de status HTTP mais adequado é
+    options:
+      - label: A
+        text: 400 Bad Request
+        rationale: 400 indica requisição malformada, o que não é o caso.
+      - label: B
+        text: 401 Unauthorized
+        rationale: 401 indica ausência de autenticação válida; o usuário já está autenticado.
+      - label: C
+        text: 403 Forbidden
+        rationale: O servidor entendeu a requisição e sabe quem é o usuário, mas recusa o acesso.
+      - label: D
+        text: 404 Not Found
+        rationale: Pode ser usado para ocultar a existência do recurso, mas o código semanticamente adequado é 403.
+      - label: E
+        text: 500 Internal Server Error
+        rationale: Não há falha do servidor; trata-se de uma regra de autorização.
+    correct: C
+    explanation: 401 → "não sei quem você é" (autenticação); 403 → "sei quem você é, mas você não pode" (autorização).
+
+  - id: q.arq.rest.03
+    topic: arq.rest
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV), com base na RFC 9110
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Ao criar um recurso com sucesso por meio de POST, a resposta mais adequada é
+    options:
+      - label: A
+        text: 200 OK, sem corpo.
+        rationale: 200 é genérico; para criação, há um código específico.
+      - label: B
+        text: 201 Created, preferencialmente com o cabeçalho Location apontando para o novo recurso.
+        rationale: 201 informa a criação, e Location indica onde o recurso pode ser obtido.
+      - label: C
+        text: 204 No Content.
+        rationale: 204 indica sucesso sem corpo de resposta, comum em DELETE ou PUT, mas não comunica criação.
+      - label: D
+        text: 302 Found.
+        rationale: É um redirecionamento, não uma confirmação de criação.
+      - label: E
+        text: 409 Conflict.
+        rationale: 409 indica conflito com o estado atual do recurso — o oposto de sucesso.
+    correct: B
+    explanation: Códigos 2xx indicam sucesso; 201 é específico para criação de recurso.

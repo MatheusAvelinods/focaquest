@@ -1,0 +1,91 @@
+questions:
+  - id: q.alg.cx.01
+    topic: alg.complexidade
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    context: |
+      ```
+      para i de 0 até n-1:
+          para j de i até n-1:
+              se v[i] == v[j] e i != j: conta = conta + 1
+      ```
+    statement: A complexidade de tempo do trecho acima, no pior caso, é
+    options:
+      - label: A
+        text: O(n)
+        rationale: Há dois laços aninhados dependentes de n; o custo não é linear.
+      - label: B
+        text: O(log n)
+        rationale: Nenhum laço divide o problema pela metade.
+      - label: C
+        text: O(n log n)
+        rationale: Típico de ordenações eficientes, não de dois laços aninhados completos.
+      - label: D
+        text: O(n²)
+        rationale: O total de iterações é n + (n−1) + ... + 1 = n(n+1)/2, que cresce como n².
+      - label: E
+        text: O(2ⁿ)
+        rationale: Complexidade exponencial surge, por exemplo, ao enumerar subconjuntos; não é o caso.
+    correct: D
+    explanation: |
+      Mesmo começando em j = i, o laço interno executa em média n/2 vezes. Constantes e termos
+      menores são descartados na notação O: n(n+1)/2 ∈ O(n²).
+
+  - id: q.alg.cx.02
+    topic: alg.complexidade
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Sobre a busca binária, é correto afirmar que
+    options:
+      - label: A
+        text: funciona em qualquer vetor e tem complexidade O(n).
+        rationale: A busca binária exige vetor ordenado e tem custo logarítmico.
+      - label: B
+        text: exige vetor ordenado e tem complexidade O(log n) no pior caso.
+        rationale: A cada passo, metade do intervalo restante é descartada.
+      - label: C
+        text: exige vetor ordenado e tem complexidade O(n log n).
+        rationale: O(n log n) é o custo de ordenar com algoritmos eficientes, não de buscar.
+      - label: D
+        text: é sempre mais rápida que a busca em tabela hash.
+        rationale: Tabelas hash têm acesso médio O(1), em geral mais rápido que O(log n).
+      - label: E
+        text: funciona apenas em listas encadeadas.
+        rationale: Listas encadeadas não oferecem acesso direto ao meio; a busca binária precisa de acesso aleatório eficiente.
+    correct: B
+    explanation: Em um vetor ordenado de 1.000.000 elementos, a busca binária precisa de cerca de 20 comparações (2²⁰ ≈ 1 milhão).
+
+  - id: q.alg.cx.03
+    topic: alg.complexidade
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      Um algoritmo O(n²) processa 1.000 registros em 2 segundos. Mantidas as demais condições,
+      o tempo esperado para processar 2.000 registros é de, aproximadamente,
+    options:
+      - label: A
+        text: 2 segundos.
+        rationale: O tempo cresce com a entrada; não é constante.
+      - label: B
+        text: 4 segundos.
+        rationale: Seria o comportamento de um algoritmo linear (dobra a entrada, dobra o tempo).
+      - label: C
+        text: 8 segundos.
+        rationale: (2n)² = 4n² — dobrar a entrada quadruplica o tempo, 2 × 4 = 8 s.
+      - label: D
+        text: 16 segundos.
+        rationale: Corresponderia a um crescimento cúbico ou maior.
+      - label: E
+        text: 2,2 segundos.
+        rationale: Lembra um crescimento logarítmico, que não é o caso.
+    correct: C
+    explanation: Para estimar, aplique o fator de crescimento — em O(n²), multiplicar n por k multiplica o tempo por k².

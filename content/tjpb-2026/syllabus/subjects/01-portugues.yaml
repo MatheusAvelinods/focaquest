@@ -1,0 +1,35 @@
+id: pt
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: GERAIS
+name: Língua Portuguesa
+examQuestionCount: 10
+position: 1
+sourceRef: "Edital TJPB 2026 — Conhecimentos Gerais, Língua Portuguesa"
+reviewedAt: 2026-10-21
+topics:
+  - id: pt.compreensao
+    code: "1"
+    name: Compreensão e interpretação de textos
+    objectives:
+      - Identificar a ideia central e as informações implícitas de um texto.
+  - id: pt.coesao
+    code: "2"
+    name: Coesão e coerência textuais; conectores
+    objectives:
+      - Reconhecer o valor semântico dos conectivos e o referente de pronomes.
+  - id: pt.concordancia
+    code: "3"
+    name: Concordância verbal e nominal
+    objectives:
+      - Aplicar as regras de concordância verbal em casos com sujeito posposto, partícula "se" e verbos impessoais.
+  - id: pt.regencia-crase
+    code: "4"
+    name: Regência verbal e nominal; emprego do sinal indicativo de crase
+    objectives:
+      - Identificar quando ocorre a fusão da preposição "a" com o artigo "a".
+      - Reconhecer os casos proibidos e facultativos de crase.
+  - id: pt.pontuacao
+    code: "5"
+    name: Pontuação
+    objectives:
+      - Empregar corretamente a vírgula entre termos e orações.

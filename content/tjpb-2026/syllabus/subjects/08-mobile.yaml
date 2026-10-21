@@ -1,0 +1,13 @@
+id: mob
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: Desenvolvimento Mobile
+position: 8
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, Desenvolvimento Mobile"
+reviewedAt: 2026-10-21
+topics:
+  - id: mob.abordagens
+    code: "1"
+    name: Abordagens nativas, híbridas e PWA
+    objectives:
+      - Comparar aplicativos nativos, multiplataforma e Progressive Web Apps.

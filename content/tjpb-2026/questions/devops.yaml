@@ -1,0 +1,81 @@
+questions:
+  - id: q.devops.cicd.01
+    topic: devops.cicd
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: A diferença entre entrega contínua (continuous delivery) e implantação contínua (continuous deployment) é que
+    options:
+      - label: A
+        text: na entrega contínua, o software está sempre pronto para produção, mas a liberação depende de uma decisão manual; na implantação contínua, toda mudança aprovada no pipeline vai automaticamente para produção.
+        rationale: A diferença está no último passo — manual na entrega contínua, automático na implantação contínua.
+      - label: B
+        text: a entrega contínua dispensa testes automatizados, enquanto a implantação contínua os exige.
+        rationale: Ambas dependem fortemente de testes automatizados.
+      - label: C
+        text: a implantação contínua é usada apenas em aplicações móveis.
+        rationale: A prática independe do tipo de aplicação.
+      - label: D
+        text: são sinônimos, com nomes diferentes conforme o fornecedor da ferramenta.
+        rationale: São práticas distintas, embora relacionadas.
+      - label: E
+        text: a entrega contínua ocorre apenas uma vez por release, ao final do projeto.
+        rationale: Entregas ao final do projeto contrariam a ideia de continuidade.
+    correct: A
+    explanation: CI integra e testa cada mudança; a entrega contínua mantém o software sempre implantável; a implantação contínua automatiza também a ida para produção.
+
+  - id: q.devops.cicd.02
+    topic: devops.cicd
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Uma prática essencial da integração contínua é
+    options:
+      - label: A
+        text: manter ramos de funcionalidade por vários meses e integrá-los ao final da release.
+        rationale: Ramos longos adiam a integração e aumentam os conflitos — o oposto da CI.
+      - label: B
+        text: integrar as mudanças ao ramo principal com frequência, com build e testes automatizados a cada integração.
+        rationale: Integrações pequenas e frequentes, verificadas automaticamente, detectam problemas cedo.
+      - label: C
+        text: executar os testes apenas no ambiente de produção.
+        rationale: Testar só em produção expõe os usuários a falhas que poderiam ser detectadas antes.
+      - label: D
+        text: designar uma única pessoa para integrar o código de toda a equipe.
+        rationale: A CI distribui a responsabilidade e automatiza a verificação.
+      - label: E
+        text: desativar testes que falham com frequência para manter o pipeline verde.
+        rationale: Desativar testes esconde problemas; testes instáveis devem ser corrigidos.
+    correct: B
+    explanation: CI significa integrar ao tronco pelo menos diariamente, com build automatizado e autoverificável.
+
+  - id: q.devops.cicd.03
+    topic: devops.cicd
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: O pipeline de integração contínua da equipe falhou após um commit, pois um teste automatizado quebrou. A conduta mais alinhada às boas práticas é
+    options:
+      - label: A
+        text: continuar integrando novas mudanças e corrigir o teste ao final da Sprint.
+        rationale: Integrar sobre um build quebrado acumula problemas e dificulta descobrir a causa.
+      - label: B
+        text: priorizar a correção imediata (ou reverter o commit) para que o ramo principal volte a ficar estável.
+        rationale: Build quebrado é prioridade da equipe; o ramo principal deve permanecer sempre íntegro.
+      - label: C
+        text: remover o teste do pipeline.
+        rationale: Remover o teste elimina a proteção que ele oferecia.
+      - label: D
+        text: implantar em produção mesmo assim, para não atrasar a entrega.
+        rationale: Implantar uma versão que reprovou nos testes aumenta o risco de falhas para os usuários.
+      - label: E
+        text: aguardar a próxima execução agendada do pipeline.
+        rationale: O problema não se resolve sozinho; o feedback rápido só tem valor se houver ação.
+    correct: B
+    explanation: Na CI, "consertar o build quebrado" tem prioridade máxima. Reverter rapidamente é uma estratégia aceitável.

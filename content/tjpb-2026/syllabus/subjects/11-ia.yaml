@@ -1,0 +1,19 @@
+id: ia
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: Inteligência Artificial
+position: 11
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, Inteligência Artificial"
+reviewedAt: 2026-10-21
+topics:
+  - id: ia.aprendizado
+    code: "1"
+    name: Aprendizado de máquina — supervisionado, não supervisionado e avaliação de modelos
+    objectives:
+      - Classificar problemas como regressão, classificação ou agrupamento.
+      - Reconhecer sobreajuste (overfitting) e formas de mitigá-lo.
+  - id: ia.llm
+    code: "2"
+    name: Modelos de linguagem e IA generativa
+    objectives:
+      - Reconhecer limitações como alucinações e a necessidade de supervisão humana.

@@ -1,0 +1,36 @@
+id: bd
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: Banco de Dados e Persistência
+position: 9
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, Banco de Dados"
+reviewedAt: 2026-10-21
+topics:
+  - id: bd.modelagem
+    code: "1"
+    name: Modelagem de dados
+    objectives:
+      - Interpretar modelos entidade-relacionamento e cardinalidades.
+    children:
+      - id: bd.normalizacao
+        code: "1.1"
+        name: Normalização — dependências funcionais e formas normais (1FN, 2FN, 3FN)
+        objectives:
+          - Identificar redundância e anomalias de atualização em tabelas.
+          - Decompor tabelas até a 3FN.
+  - id: bd.sql
+    code: "2"
+    name: SQL — consultas, junções e agregações
+    objectives:
+      - Diferenciar INNER JOIN e LEFT JOIN.
+      - Usar GROUP BY e HAVING corretamente.
+  - id: bd.transacoes
+    code: "3"
+    name: Transações, propriedades ACID e níveis de isolamento
+    objectives:
+      - Relacionar níveis de isolamento a anomalias de leitura.
+  - id: bd.nosql
+    code: "4"
+    name: Bancos NoSQL e ORM
+    objectives:
+      - Comparar modelos documento, chave-valor, colunar e grafo.

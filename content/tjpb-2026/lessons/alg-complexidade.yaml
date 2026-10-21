@@ -1,0 +1,31 @@
+id: l.alg.complexidade
+topic: alg.complexidade
+title: Notação O — estimando o custo de um algoritmo
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Estimar a complexidade de laços e buscas e prever o efeito do aumento da entrada.
+explanation: |
+  A notação **O** descreve como o custo cresce quando a entrada **n** aumenta, desconsiderando
+  constantes e termos menores.
+
+  **Classes mais comuns:**
+
+  - **O(1):** acesso a vetor por índice; acesso médio em tabela hash;
+  - **O(log n):** busca binária (descarta metade a cada passo; exige dados ordenados);
+  - **O(n):** percorrer uma lista uma vez;
+  - **O(n log n):** ordenações eficientes (merge sort, heap sort);
+  - **O(n²):** dois laços aninhados sobre a entrada;
+  - **O(2ⁿ):** enumerar todos os subconjuntos.
+
+  **Regras práticas:** laços em sequência somam (e prevalece o maior); laços aninhados multiplicam.
+example: |
+  Se um algoritmo O(n²) leva 1 s para n = 10.000, quanto leva para n = 30.000?
+
+  A entrada triplicou → o tempo multiplica por 3² = 9 → cerca de **9 s**.
+  Um algoritmo O(n) levaria cerca de 3 s; um O(log n), praticamente o mesmo tempo.
+summary: Laços aninhados multiplicam; em O(n²), multiplicar n por k multiplica o tempo por k².
+activities:
+  - q.alg.cx.01
+  - q.alg.cx.02
+  - q.alg.cx.03

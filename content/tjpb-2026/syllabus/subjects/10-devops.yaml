@@ -1,0 +1,28 @@
+id: devops
+syllabus: tjpb-2026-analista-ti-dev-v1
+area: ESPECIFICOS
+name: DevOps, Infraestrutura como Código e Nuvem
+position: 10
+sourceRef: "Edital TJPB 2026 — Conhecimentos Específicos, DevOps e Nuvem"
+reviewedAt: 2026-10-21
+topics:
+  - id: devops.cicd
+    code: "1"
+    name: Integração e entrega contínuas (CI/CD)
+    objectives:
+      - Diferenciar integração contínua, entrega contínua e implantação contínua.
+  - id: devops.containers
+    code: "2"
+    name: Contêineres e orquestração (Docker e Kubernetes)
+    objectives:
+      - Diferenciar imagem e contêiner e reconhecer objetos básicos do Kubernetes.
+  - id: devops.iac
+    code: "3"
+    name: Infraestrutura como código
+    objectives:
+      - Reconhecer abordagens declarativas e imperativas de IaC.
+  - id: devops.nuvem
+    code: "4"
+    name: Modelos de serviço em nuvem (IaaS, PaaS, SaaS)
+    objectives:
+      - Identificar responsabilidades do provedor e do cliente em cada modelo.

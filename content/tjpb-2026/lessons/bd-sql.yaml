@@ -1,0 +1,36 @@
+id: l.bd.sql
+topic: bd.sql
+title: SQL — junções, agrupamentos e nulos
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Escolher o tipo de JOIN correto e filtrar agregações com HAVING.
+explanation: |
+  **Junções:**
+
+  - **INNER JOIN:** só os pares que têm correspondência nas duas tabelas;
+  - **LEFT JOIN:** todas as linhas da esquerda; sem correspondência, as colunas da direita vêm NULL;
+  - **RIGHT JOIN:** o espelho do LEFT;
+  - **CROSS JOIN:** produto cartesiano (todas as combinações).
+
+  **Agrupamento:** a ordem lógica de execução é
+  FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY.
+  O **WHERE** filtra linhas antes de agrupar; o **HAVING** filtra grupos depois — por isso
+  condições com COUNT, SUM ou AVG vão no HAVING.
+
+  **Nulos:** COUNT(*) conta linhas; COUNT(coluna) ignora NULL.
+example: |
+  Setores com mais de 10 servidores ativos:
+
+  ```sql
+  SELECT setor_id, COUNT(*)
+  FROM servidor
+  WHERE ativo = true        -- filtra linhas
+  GROUP BY setor_id
+  HAVING COUNT(*) > 10;     -- filtra grupos
+  ```
+summary: Precisa manter todos de um lado? LEFT JOIN. Condição sobre agregação? HAVING.
+activities:
+  - q.bd.sql.01
+  - q.bd.sql.02
+  - q.bd.sql.03

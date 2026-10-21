@@ -1,0 +1,208 @@
+questions:
+  - id: q.rlm.prop.01
+    topic: rlm.proposicoes
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      Considere a proposição: "Se o sistema está atualizado, então o servidor está seguro."
+
+      Assinale a opção que apresenta a sua negação lógica.
+    options:
+      - label: A
+        text: Se o sistema não está atualizado, então o servidor não está seguro.
+        rationale: Esta é a inversa da condicional; não é negação nem equivalente.
+      - label: B
+        text: O sistema está atualizado e o servidor não está seguro.
+        rationale: A negação de "se P, então Q" é "P e não Q" — o único cenário que torna a condicional falsa.
+      - label: C
+        text: O sistema não está atualizado ou o servidor está seguro.
+        rationale: Esta forma ("não P ou Q") é EQUIVALENTE à condicional original, e não sua negação.
+      - label: D
+        text: Se o servidor não está seguro, então o sistema não está atualizado.
+        rationale: Esta é a contrapositiva, equivalente à proposição original.
+      - label: E
+        text: O sistema não está atualizado e o servidor está seguro.
+        rationale: Este cenário torna a condicional verdadeira; portanto não pode ser sua negação.
+    correct: B
+    explanation: |
+      Uma condicional P → Q só é falsa quando P é verdadeira e Q é falsa. Por isso, ~(P → Q) ≡ P ∧ ~Q.
+      Memorize: "mantém a primeira E nega a segunda".
+
+  - id: q.rlm.prop.02
+    topic: rlm.proposicoes
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      Assinale a opção logicamente equivalente a: "Se chove, então a audiência é adiada."
+    options:
+      - label: A
+        text: Se a audiência é adiada, então chove.
+        rationale: Esta é a recíproca (Q → P), que não é equivalente — a audiência pode ser adiada por outros motivos.
+      - label: B
+        text: Se não chove, então a audiência não é adiada.
+        rationale: Esta é a inversa (~P → ~Q), também não equivalente.
+      - label: C
+        text: Se a audiência não é adiada, então não chove.
+        rationale: A contrapositiva (~Q → ~P) é sempre equivalente à condicional original.
+      - label: D
+        text: Chove e a audiência não é adiada.
+        rationale: Esta é a negação da proposição original.
+      - label: E
+        text: Não chove e a audiência é adiada.
+        rationale: É apenas um dos cenários compatíveis com a condicional, não uma equivalência.
+    correct: C
+    explanation: |
+      As duas equivalências clássicas da condicional P → Q são a contrapositiva (~Q → ~P) e a
+      disjunção (~P ∨ Q). Recíproca e inversa NÃO são equivalentes.
+
+  - id: q.rlm.prop.03
+    topic: rlm.proposicoes
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      A negação da proposição "João é analista e Maria é técnica" é:
+    options:
+      - label: A
+        text: João não é analista e Maria não é técnica.
+        rationale: Erro comum — negar cada parte mantendo o "e". Pelas leis de De Morgan, o conectivo também muda.
+      - label: B
+        text: João não é analista ou Maria não é técnica.
+        rationale: Por De Morgan, ~(P ∧ Q) ≡ ~P ∨ ~Q.
+      - label: C
+        text: João é analista ou Maria é técnica.
+        rationale: Troca o conectivo, mas não nega as proposições simples.
+      - label: D
+        text: Se João não é analista, então Maria não é técnica.
+        rationale: Esta condicional equivale a "João é analista ou Maria não é técnica", que não é a negação pedida.
+      - label: E
+        text: João é analista e Maria não é técnica.
+        rationale: Este é apenas um dos cenários em que a conjunção é falsa; não a nega por completo.
+    correct: B
+    explanation: |
+      Leis de De Morgan: ~(P ∧ Q) ≡ ~P ∨ ~Q e ~(P ∨ Q) ≡ ~P ∧ ~Q. Ao negar, troque o conectivo
+      e negue cada parte.
+
+  - id: q.rlm.prop.04
+    topic: rlm.proposicoes
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: A negação de "Todo servidor do setor é concursado" é
+    options:
+      - label: A
+        text: Nenhum servidor do setor é concursado.
+        rationale: Esta é a contrária, mais forte que a negação. Basta um contraexemplo para negar "todo".
+      - label: B
+        text: Algum servidor do setor não é concursado.
+        rationale: A negação de "todo A é B" é "algum A não é B".
+      - label: C
+        text: Todo servidor do setor não é concursado.
+        rationale: Equivale a "nenhum é concursado", que não é a negação.
+      - label: D
+        text: Algum servidor do setor é concursado.
+        rationale: Esta afirmação é compatível com a original; não a nega.
+      - label: E
+        text: Nenhum servidor concursado é do setor.
+        rationale: Inverte os conjuntos e ainda usa "nenhum"; não é a negação.
+    correct: B
+    explanation: |
+      Negação de quantificadores: ~(todo A é B) ≡ algum A não é B; ~(algum A é B) ≡ nenhum A é B.
+
+  - id: q.rlm.pct.01
+    topic: rlm.porcentagem
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: |
+      Um equipamento custava R$ 500,00. Seu preço sofreu um aumento de 10% e, em seguida, um
+      desconto de 10% sobre o novo valor. O preço final do equipamento é
+    options:
+      - label: A
+        text: R$ 500,00
+        rationale: Erro clássico — aumento e desconto de mesmo percentual não se anulam, pois incidem sobre bases diferentes.
+      - label: B
+        text: R$ 495,00
+        rationale: 500 × 1,10 = 550; 550 × 0,90 = 495. Ou direto — 500 × 1,1 × 0,9 = 500 × 0,99.
+      - label: C
+        text: R$ 490,00
+        rationale: Corresponderia a uma redução de 2%, não de 1%.
+      - label: D
+        text: R$ 505,00
+        rationale: O resultado final é menor que o inicial, pois o desconto incide sobre um valor maior.
+      - label: E
+        text: R$ 450,00
+        rationale: Seria apenas o desconto de 10% sobre o preço original, ignorando o aumento.
+    correct: B
+    explanation: |
+      Variações sucessivas se multiplicam: fator de aumento de 10% = 1,10; fator de desconto de
+      10% = 0,90. O fator total é 1,10 × 0,90 = 0,99, ou seja, uma redução de 1%.
+
+  - id: q.rlm.pct.02
+    topic: rlm.porcentagem
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Dois aumentos sucessivos de 10% e de 20% equivalem a um único aumento de
+    options:
+      - label: A
+        text: "30%"
+        rationale: Somar os percentuais ignora que o segundo aumento incide sobre o valor já aumentado.
+      - label: B
+        text: "31%"
+        rationale: Resultado de conta incorreta; o fator correto é 1,1 × 1,2 = 1,32.
+      - label: C
+        text: "32%"
+        rationale: 1,10 × 1,20 = 1,32, ou seja, aumento total de 32%.
+      - label: D
+        text: "22%"
+        rationale: Não corresponde a nenhuma composição dos fatores 1,10 e 1,20.
+      - label: E
+        text: "33%"
+        rationale: Superestima o efeito composto; o fator correto é 1,32.
+    correct: C
+    explanation: Multiplique os fatores (1 + i₁)(1 + i₂) e subtraia 1 — 1,1 × 1,2 − 1 = 0,32 = 32%.
+
+  - id: q.rlm.pct.03
+    topic: rlm.porcentagem
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    context: Um mutirão de conciliação buscou reduzir o acervo de processos pendentes de uma vara.
+    statement: |
+      A vara tinha 1.200 processos pendentes. No primeiro semestre, o acervo foi reduzido em 25%;
+      no segundo, houve nova redução de 20% sobre o que restava. Ao final do ano, restaram
+    options:
+      - label: A
+        text: 540 processos.
+        rationale: Corresponderia a uma redução total de 55%, bem maior do que a produzida pelas duas reduções sucessivas.
+      - label: B
+        text: 600 processos.
+        rationale: Seria uma redução de 50%; o efeito combinado é 1 − 0,75 × 0,80 = 40%.
+      - label: C
+        text: 720 processos.
+        rationale: 1.200 × 0,75 = 900; 900 × 0,80 = 720.
+      - label: D
+        text: 660 processos.
+        rationale: Equivale a somar as reduções (45%), o que ignora que a segunda incide sobre 900.
+      - label: E
+        text: 750 processos.
+        rationale: Não corresponde à aplicação sucessiva dos fatores 0,75 e 0,80.
+    correct: C
+    explanation: Reduções sucessivas — 1.200 × (1 − 0,25) × (1 − 0,20) = 1.200 × 0,6 = 720. A redução total foi de 40%, não de 45%.

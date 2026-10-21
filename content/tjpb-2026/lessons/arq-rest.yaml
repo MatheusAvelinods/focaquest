@@ -1,0 +1,35 @@
+id: l.arq.rest
+topic: arq.rest
+title: APIs REST — métodos, idempotência e códigos de status
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Distinguir métodos seguros e idempotentes e escolher o código de status adequado.
+explanation: |
+  **Métodos seguros** não alteram o estado do servidor: GET, HEAD, OPTIONS.
+
+  **Métodos idempotentes** produzem o mesmo efeito se repetidos: todos os seguros, mais **PUT** e
+  **DELETE**. **POST** não é idempotente (repetir pode criar dois recursos), e **PATCH** também
+  não é, por definição.
+
+  **Códigos de status essenciais:**
+
+  - 200 OK; **201 Created** (com cabeçalho Location); 204 No Content;
+  - 400 Bad Request; **401** (não autenticado); **403** (autenticado, mas sem permissão);
+    404 Not Found; 409 Conflict; 422 (conteúdo válido, mas que viola regras);
+  - 500 Internal Server Error; 503 Service Unavailable.
+example: |
+  ```
+  PUT /processos/123/situacao  { "situacao": "ARQUIVADO" }
+  ```
+
+  Enviar a mesma requisição três vezes deixa o processo arquivado, como na primeira vez →
+  idempotente.
+
+  POST /peticoes enviado três vezes pode protocolar três petições → não idempotente. Por isso,
+  APIs críticas aceitam uma chave de idempotência no POST.
+summary: Seguros — GET/HEAD/OPTIONS. Idempotentes — esses + PUT/DELETE. 401 = quem é você? 403 = você não pode.
+activities:
+  - q.arq.rest.01
+  - q.arq.rest.02
+  - q.arq.rest.03

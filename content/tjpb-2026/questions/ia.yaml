@@ -1,0 +1,81 @@
+questions:
+  - id: q.ia.ml.01
+    topic: ia.aprendizado
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Um tribunal quer classificar automaticamente petições iniciais por assunto, usando milhares de petições já classificadas por servidores. Trata-se de um problema de
+    options:
+      - label: A
+        text: aprendizado supervisionado — classificação.
+        rationale: Há exemplos rotulados (petição → assunto) e o objetivo é prever uma categoria.
+      - label: B
+        text: aprendizado supervisionado — regressão.
+        rationale: Regressão prevê valores numéricos contínuos, não categorias.
+      - label: C
+        text: aprendizado não supervisionado — agrupamento.
+        rationale: Agrupamento é usado quando não há rótulos; aqui os rótulos existem.
+      - label: D
+        text: aprendizado por reforço.
+        rationale: Reforço envolve um agente que aprende por recompensas ao interagir com um ambiente.
+      - label: E
+        text: redução de dimensionalidade.
+        rationale: Pode ser uma etapa auxiliar, mas não é o tipo de problema descrito.
+    correct: A
+    explanation: Supervisionado = dados rotulados (classificação para categorias, regressão para números). Não supervisionado = sem rótulos (agrupamento, redução de dimensionalidade).
+
+  - id: q.ia.ml.02
+    topic: ia.aprendizado
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Para identificar grupos de processos semelhantes em um acervo, sem categorias definidas previamente, a técnica mais adequada é
+    options:
+      - label: A
+        text: regressão linear.
+        rationale: Regressão exige uma variável-alvo numérica conhecida.
+      - label: B
+        text: árvore de decisão treinada com rótulos.
+        rationale: Exigiria rótulos, que não existem no cenário.
+      - label: C
+        text: agrupamento (clustering), como o k-means.
+        rationale: O agrupamento encontra estrutura em dados não rotulados.
+      - label: D
+        text: regressão logística.
+        rationale: Apesar do nome, é um classificador supervisionado.
+      - label: E
+        text: validação cruzada.
+        rationale: É uma técnica de avaliação de modelos, não de agrupamento.
+    correct: C
+    explanation: O k-means distribui os itens em k grupos, minimizando a distância de cada item ao centro do seu grupo.
+
+  - id: q.ia.ml.03
+    topic: ia.aprendizado
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV)
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Um modelo obteve 99% de acurácia nos dados de treino e 70% nos dados de teste. O diagnóstico e uma medida adequada são
+    options:
+      - label: A
+        text: subajuste (underfitting); aumentar o número de épocas indefinidamente.
+        rationale: No subajuste o desempenho é ruim também no treino, o que não ocorre aqui.
+      - label: B
+        text: sobreajuste (overfitting); aplicar regularização e validar com validação cruzada.
+        rationale: O modelo memorizou o treino e generaliza mal; regularização, mais dados e modelos mais simples ajudam.
+      - label: C
+        text: modelo ideal; publicá-lo imediatamente.
+        rationale: A diferença de 29 pontos entre treino e teste indica baixa generalização.
+      - label: D
+        text: sobreajuste; avaliar o modelo apenas com os dados de treino.
+        rationale: Avaliar só no treino esconderia o problema.
+      - label: E
+        text: vazamento de dados; remover o conjunto de teste.
+        rationale: Sem conjunto de teste, não há como estimar a generalização.
+    correct: B
+    explanation: Sinais de overfitting — erro baixo no treino e alto na validação. Mitigações — regularização, early stopping, mais dados, redução da complexidade e validação cruzada.

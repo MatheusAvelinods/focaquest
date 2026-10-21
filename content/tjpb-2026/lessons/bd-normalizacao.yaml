@@ -1,0 +1,42 @@
+id: l.bd.normalizacao
+topic: bd.normalizacao
+title: Normalização — da tabela única às formas normais
+status: PUBLISHED
+position: 1
+reviewedAt: 2026-10-21
+objective: Identificar redundância em uma tabela e decompô-la até a 3FN sem perder informação.
+explanation: |
+  **Normalizar é guardar cada fato em um único lugar.** Quando a mesma informação se repete,
+  surgem as **anomalias**: de atualização (altera-se uma cópia e esquece-se outra), de inserção
+  e de exclusão.
+
+  As formas normais são degraus:
+
+  - **1FN:** atributos atômicos, sem listas ou grupos repetidos em uma coluna;
+  - **2FN:** 1FN + nenhum atributo não chave depende de **parte** de uma chave composta;
+  - **3FN:** 2FN + nenhum atributo não chave depende de **outro atributo não chave**
+    (dependência transitiva).
+
+  Atalho: "cada atributo depende **da chave, da chave inteira e de nada além da chave**".
+
+  A correção é sempre a mesma: **mova os atributos dependentes para uma nova tabela** e ligue as
+  tabelas por chave estrangeira.
+example: |
+  ```
+  PEDIDO(num_pedido, data, cpf_cliente, nome_cliente, telefone_cliente)
+  ```
+
+  num_pedido → cpf_cliente → nome_cliente: dependência transitiva, viola a 3FN.
+  Se o cliente muda de telefone, é preciso alterar todos os seus pedidos.
+
+  **Decomposição:**
+
+  ```
+  CLIENTE(cpf_cliente, nome_cliente, telefone_cliente)
+  PEDIDO(num_pedido, data, cpf_cliente → CLIENTE)
+  ```
+summary: 1FN = atômico; 2FN = sem dependência parcial; 3FN = sem dependência transitiva. Corrija decompondo e ligando por chave estrangeira.
+activities:
+  - q.bd.norm.01
+  - q.bd.norm.02
+  - q.bd.norm.03

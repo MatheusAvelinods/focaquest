@@ -1,0 +1,84 @@
+questions:
+  - id: q.gov.lgpd.01
+    topic: gov.lgpd
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV), com base na Lei nº 13.709/2018, art. 5º, II
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Nos termos da LGPD, é exemplo de dado pessoal SENSÍVEL
+    options:
+      - label: A
+        text: o número do CPF.
+        rationale: O CPF é dado pessoal, mas não consta do rol de dados sensíveis.
+      - label: B
+        text: o endereço residencial.
+        rationale: É dado pessoal comum, não sensível.
+      - label: C
+        text: o dado biométrico, quando vinculado a uma pessoa natural.
+        rationale: Dados genéticos e biométricos estão expressamente listados como sensíveis no art. 5º, II.
+      - label: D
+        text: o e-mail funcional do servidor.
+        rationale: Identifica a pessoa, mas não está no rol de dados sensíveis.
+      - label: E
+        text: a remuneração do cargo.
+        rationale: Não integra o rol de dados sensíveis da LGPD.
+    correct: C
+    explanation: |
+      Dado sensível (art. 5º, II): origem racial ou étnica, convicção religiosa, opinião política,
+      filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado
+      referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural.
+
+  - id: q.gov.lgpd.02
+    topic: gov.lgpd
+    difficulty: FACIL
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV), com base na Lei nº 13.709/2018, art. 5º
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Na LGPD, a pessoa indicada para atuar como canal de comunicação entre o controlador, os titulares dos dados e a Autoridade Nacional de Proteção de Dados (ANPD) é o
+    options:
+      - label: A
+        text: operador.
+        rationale: O operador realiza o tratamento em nome do controlador.
+      - label: B
+        text: encarregado.
+        rationale: É a definição de encarregado (art. 5º, VIII), conhecido como DPO.
+      - label: C
+        text: titular.
+        rationale: O titular é a pessoa natural a quem os dados se referem.
+      - label: D
+        text: controlador.
+        rationale: O controlador toma as decisões sobre o tratamento; ele indica o encarregado.
+      - label: E
+        text: agente de tratamento.
+        rationale: 'O termo "agentes de tratamento" abrange controlador e operador, não o canal de comunicação.'
+    correct: B
+    explanation: Agentes de tratamento são o controlador (decide) e o operador (executa). O encarregado é o canal de comunicação.
+
+  - id: q.gov.lgpd.03
+    topic: gov.lgpd
+    difficulty: MEDIA
+    boardStyle: FGV
+    source: Questão inédita — Equipe FocaQuest (estilo FGV), com base na Lei nº 13.709/2018, arts. 7º e 23
+    author: Equipe FocaQuest
+    status: PUBLISHED
+    statement: Sobre o tratamento de dados pessoais pelo Poder Judiciário na tramitação de processos, é correto afirmar que
+    options:
+      - label: A
+        text: depende sempre do consentimento expresso de todas as partes.
+        rationale: O consentimento é apenas uma das bases legais; o tratamento pode se apoiar em outras.
+      - label: B
+        text: pode se fundamentar em bases legais como o cumprimento de obrigação legal e o exercício regular de direitos em processo judicial, sem necessidade de consentimento.
+        rationale: O art. 7º prevê essas bases, e o art. 23 disciplina o tratamento pelo poder público para atender sua finalidade pública.
+      - label: C
+        text: é proibido quando envolver dados sensíveis.
+        rationale: Dados sensíveis podem ser tratados nas hipóteses do art. 11, inclusive para o exercício regular de direitos em processo judicial.
+      - label: D
+        text: está fora do alcance da LGPD, que se aplica apenas a empresas privadas.
+        rationale: A LGPD se aplica também às pessoas jurídicas de direito público.
+      - label: E
+        text: só pode ocorrer após autorização prévia da ANPD para cada processo.
+        rationale: Não há exigência de autorização prévia da ANPD para cada tratamento.
+    correct: B
+    explanation: Consentimento é só uma das bases do art. 7º. O poder público trata dados para executar suas competências legais, observando os princípios da lei (finalidade, necessidade, transparência etc.).
